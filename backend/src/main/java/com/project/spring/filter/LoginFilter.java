@@ -99,6 +99,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         response.addHeader(HEADER_EXPOSED_HEADERS, HEADER_EXPIRATION + "," + HEADER_AUTH);
 
         // HTTP Body
-        objectMapper.writeValue(response.getOutputStream(), applicationUserMapper.mapApplicationUserToDTO(applicationUser));
+        objectMapper.writeValue(response.getOutputStream(), applicationUserMapper.mapApplicationUserToDto(applicationUser));
     }
 }
