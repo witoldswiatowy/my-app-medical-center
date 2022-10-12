@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Sex, UserServiceService} from "../user-service/user-service.service";
 
 @Component({
   selector: 'app-user-list',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  displayedColumns : string[] = [
+    'identifier',
+    'login',
+    'name',
+    'surname',
+    'phoneNumber',
+    'email',
+    'birthDate',
+    'sex',
+    'roles'
+  ]
 
-  constructor() { }
+
+  constructor(protected userServiceService : UserServiceService) { }
 
   ngOnInit(): void {
+    this.userServiceService.refreshUserList()
   }
 
 }
