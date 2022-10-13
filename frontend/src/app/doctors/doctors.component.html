@@ -1,0 +1,22 @@
+<div class="doctors-container">
+  <mat-grid-list cols="12" rowHeight="24px">
+    <!-- Pasek na którym wyświetlimy guzik -->
+    <mat-grid-tile [colspan]="10" rowspan="2"></mat-grid-tile>
+    <mat-grid-tile [colspan]="2" rowspan="2">
+      <button mat-raised-button
+              mat-icon-button
+              class="doctor-btn-add"
+              [routerLink]="['form']">
+
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-grid-tile>
+
+    <!-- Tutaj umieścimy tabelkę z produktami -->
+    <mat-grid-tile [colspan]="12" rowspan="28">
+      <div class="doctors-content-tile">
+        <app-doctor-list></app-doctor-list>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
