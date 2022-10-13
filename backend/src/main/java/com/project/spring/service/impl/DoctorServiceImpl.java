@@ -18,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityNotFoundException;
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional
@@ -30,12 +29,18 @@ public class DoctorServiceImpl implements DoctorService {
     private final DoctorRepository doctorRepository;
     private final MedicalClinicRepository medicalClinicRepository;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public DoctorDto findDoctorById(Long doctorId) {
         return DoctorMapper.toDoctorDto(doctorRepository.findById(doctorId)
                 .orElseThrow(() -> new EntityNotFoundException("Doctor with id: " + doctorId + " was not found")));
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<DoctorDto> getAllDoctors() {
         return DoctorMapper.toDoctorDtos(doctorRepository.findAll());
