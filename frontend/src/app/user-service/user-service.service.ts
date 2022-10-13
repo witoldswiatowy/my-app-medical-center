@@ -31,8 +31,10 @@ export class UserServiceService {
   constructor(private httpClient: HttpClient) { }
 
   public refreshUserList(): void {
+        console.log("refreshUserList1")
     this.httpClient.get('http://localhost:8080/users')
       .subscribe((data) => {
+        console.log("refreshUserList2")
         console.log(data);
 
         let receivedUserList = data as User[];
