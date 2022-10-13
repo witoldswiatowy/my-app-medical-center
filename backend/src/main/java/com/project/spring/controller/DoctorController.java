@@ -20,7 +20,6 @@ public class DoctorController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('ADMIN')")
     public List<DoctorDto> getListOfDoctor(){
         return doctorService.getAllDoctors();
     }

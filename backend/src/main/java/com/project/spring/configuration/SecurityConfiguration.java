@@ -34,6 +34,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .cors()
                 .and()
                     .authorizeRequests()
+//                        .antMatchers("/**").permitAll()
+                        .antMatchers(HttpMethod.GET, "/api/doctor").permitAll()
                         .antMatchers(HttpMethod.POST, "/api/user").permitAll()
                         .antMatchers(HttpMethod.GET, "/api/test/public").permitAll()                // dostępny dla każdego
                         .antMatchers("/api/test/anyone").authenticated()            // dla dowolnej osoby która jest zalogowana
