@@ -19,6 +19,7 @@ import static com.project.spring.model.DoctorEntity.*;
 public class DoctorEntity extends PersonEntity {
 
     @Column(name = "specialization", nullable = false)
+    @Enumerated(EnumType.STRING)
     private MedicalSpecialization specialization;
 
     @Column(name = "hourly_rate", nullable = false)
