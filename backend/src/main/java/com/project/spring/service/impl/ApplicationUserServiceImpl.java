@@ -1,4 +1,4 @@
-package com.project.spring.service;
+package com.project.spring.service.impl;
 
 import com.project.spring.model.dto.ApplicationUserDto;
 import com.project.spring.model.dto.CreateUserRequest;
@@ -6,6 +6,7 @@ import com.project.spring.model.mapper.ApplicationUserMapper;
 import com.project.spring.model.ApplicationUser;
 import com.project.spring.repository.ApplicationUserRepository;
 import com.project.spring.repository.ApplicationUserRoleRepository;
+import com.project.spring.service.ApplicationUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
