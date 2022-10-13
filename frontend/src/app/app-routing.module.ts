@@ -7,6 +7,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { AdminRoleGuard } from './authentication-service/admin-role.guard';
 import { AuthenticationGuard } from './authentication-service/authentication.guard';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import {DoctorsComponent} from "./doctors/doctors.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: "login", component: LoginFormComponent },
   { path: "register", component: RegistrationFormComponent },
   { path: "users", component: UserListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard] },
+  { path: "doctors", component: DoctorsComponent },
 ];
 
 @NgModule({

@@ -4,7 +4,7 @@
     <div class="app-logo">
       <img class="logo-image" src="../assets/gopher.png" height="48px">
       <div>
-        <span>Generic Spring Project</span>
+        <span>Medical Center</span>
       </div>
     </div>
     <nav class="app-nav">
@@ -13,6 +13,9 @@
       </div>
       <div *ngIf="!authService.isLoggedIn()">
         <button mat-raised-button mat-button [routerLink]="['/login']">Login</button>
+      </div>
+      <div>
+        <button mat-raised-button mat-button [routerLink]="['/doctors']">Doctors</button>
       </div>
       <div *ngIf="!authService.isLoggedIn()">
         <button mat-raised-button mat-button [routerLink]="['/register']">Register</button>
