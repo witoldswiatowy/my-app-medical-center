@@ -17,6 +17,31 @@ public class VisitMapper {
     private VisitMapper() {
     }
 
+
+
+    public static VisitDto toVisitDto (VisitEntity visitEntity, ApplicationUser user){
+        if (visitEntity == null){
+            return null;
+        }
+
+        DoctorDto doctorDto = DoctorMapper.toDoctorDto(visitEntity.getDoctor());
+        ApplicationUserDto applicationUserDto = ApplicationUserMapper2.toApplicationUserDto(user);
+        DutyDto dutyDto = DutyMapper.toDutyDto(visitEntity.getDuty());
+
+        return VisitDto.builder()
+                .id(visitEntity.getId())
+                .createDate(visitEntity.getCreateDate())
+                .updateDate(visitEntity.getUpdateDate())
+                .version(visitEntity.getVersion())
+                .status(visitEntity.getStatus())
+                .timeInDuty(visitEntity.getTimeInDuty())
+                .price(visitEntity.getPrice())
+                .doctor(doctorDto)
+                .applicationUser(applicationUserDto)
+                .duty(dutyDto)
+                .build();
+    }
+
     public static VisitDto toVisitDto (VisitEntity visitEntity){
         if (visitEntity == null){
             return null;

@@ -6,17 +6,17 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
 public class VisitDto {
 
     private Long id;
     private LocalDateTime createDate;
     private LocalDateTime updateDate;
     private Long version;
+
     private Status status;
     private LocalDateTime timeInDuty;
     private BigDecimal price;
