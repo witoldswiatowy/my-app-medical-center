@@ -19,8 +19,9 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
+//    @ResponseStatus(HttpStatus.OK)
     public List<DoctorDto> getListOfDoctor(){
+        log.info("Logger when execute methode from DoctorController");
         return doctorService.getAllDoctors();
     }
 }

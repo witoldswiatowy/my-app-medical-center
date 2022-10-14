@@ -1,0 +1,52 @@
+<mat-card>
+  <mat-card-title>Visit List</mat-card-title>
+  <mat-card-subtitle>This is a list of visit</mat-card-subtitle>
+  <mat-card-content class="visits-list-content">
+    <table mat-table [dataSource]="visits" class="mat-elevation-z2 visits-table">
+
+      <ng-container matColumnDef="visit-id">
+        <th mat-header-cell *matHeaderCellDef>Visit id</th>
+        <td mat-cell *matCellDef="let visit">{{visit.visitId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let visit">{{visit.status}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="time-in-duty">
+        <th mat-header-cell *matHeaderCellDef>Time in duty:</th>
+        <td mat-cell *matCellDef="let visit">{{visit.timeInDuty | date :'yyyy-MM-dd HH:mm'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let visit">{{visit.price}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="doctor-id">
+        <th mat-header-cell *matHeaderCellDef>Doctor id</th>
+        <td mat-cell *matCellDef="let visit">{{visit.doctorId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="duty-id">
+        <th mat-header-cell *matHeaderCellDef>Duty id</th>
+        <td mat-cell *matCellDef="let visit">{{visit.dutyId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="visits-person-first-name">
+        <th mat-header-cell *matHeaderCellDef>Sales Person first name:</th>
+        <td mat-cell *matCellDef="let visit">{{visit.visitsPersonFirstName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="visits-person-last-name">
+        <th mat-header-cell *matHeaderCellDef>Sales Person last name:</th>
+        <td mat-cell *matCellDef="let visit">{{visit.visitsPersonLastName}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="getVisibleColumnNames()"></tr>
+      <tr mat-row *matRowDef="let row; columns: getVisibleColumnNames()"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+

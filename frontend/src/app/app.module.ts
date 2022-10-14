@@ -36,6 +36,8 @@ import { AuthenticationServiceService } from './authentication-service/authentic
 import { AdminRoleGuard } from './authentication-service/admin-role.guard';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
+import { VisitListComponent } from './visit-list/visit-list.component';
+import { AllVisitListComponent } from './all-visit-list/all-visit-list.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
     RegistrationFormComponent,
     DoctorsComponent,
     DoctorListComponent,
+    VisitListComponent,
+    AllVisitListComponent,
   ],
   imports: [
     BrowserModule,

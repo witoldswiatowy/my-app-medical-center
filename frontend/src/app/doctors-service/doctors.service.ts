@@ -1,28 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-
-export enum MedicalSpecialization {
-  CARDIOLOGY = "CARDIOLOGY",
-  DERMATOLOGY = "DERMATOLOGY",
-  ENDOCRINOLOGY = "ENDOCRINOLOGY",
-  PEDIATRICS = "PEDIATRICS",
-  GYNECOLOGY = "GYNECOLOGY",
-  OPHTHALMOLOGY = "OPHTHALMOLOGY",
-  ORTHOPEDIC_SURGERY = "ORTHOPEDIC_SURGERY",
-  OCCUPATIONAL_MEDICINE = "OCCUPATIONAL_MEDICINE"
-}
-
-export type Doctor = {
-  id: number,
-
-  name: string,
-  surname: string,
-  phoneNumber: string,
-  email: string,
-  specialization: MedicalSpecialization,
-  hourlyRate: number,
-  clinicId: number
-}
+import {Doctor} from "../model/doctor";
 
 @Injectable({
   providedIn: 'root'
@@ -33,12 +11,22 @@ export class DoctorsService {
   constructor(private http: HttpClient) { }
 
   public refreshDoctorList(): void {
-    this.http.get('http://localhost:8080/doctors')
-      .subscribe((data) => { // promise
-        console.log(data)
-
-        let receivedDoctorList = data as Doctor[];
-        this.doctorList = receivedDoctorList;
+    console.log("refreshList1 on start methode from doctors service")
+    this.http.get<Doctor[]>('http://localhost:8080/doctor')
+      .subscribe({
+        next: (data) => {
+          this.doctorList = data;
+        },
+        error: (error) => {
+          console.log('Error: ' + error)
+        }
       })
+      // .subscribe((data) => { // promise
+      //   console.log("refreshList2 on end methode from doctors service")
+      //   console.log(data)
+      //
+      //   let receivedDoctorList = data as Doctor[];
+      //   this.doctorList = receivedDoctorList;
+      // })
   }
 }

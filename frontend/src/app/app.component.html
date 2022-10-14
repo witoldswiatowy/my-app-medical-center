@@ -23,6 +23,9 @@
       <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
         <button mat-raised-button mat-button [routerLink]="['/users']">Users</button>
       </div>
+      <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN')">
+        <button mat-raised-button mat-button [routerLink]="['/visits']">Visits</button>
+      </div>
       <div>
         <button mat-raised-button mat-button [routerLink]="['/test']">Test</button>
       </div>

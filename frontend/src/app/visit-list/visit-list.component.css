@@ -1,0 +1,28 @@
+.visits-list-content {
+}
+
+.visits-table {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid red;
+}
+
+.mat-column-visit-id {
+  width: 48px;
+  max-width: 48px;
+}
+
+.mat-column-status {
+  width: 64px;
+  max-width: 64px;
+}
+
+.mat-column-time-in-duty {
+  width: 128px;
+  max-width: 128px;
+}
+
+.mat-column-price {
+  width: 64px;
+  max-width: 64px;
+}
