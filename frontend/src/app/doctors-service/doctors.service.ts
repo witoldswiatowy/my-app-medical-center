@@ -21,12 +21,5 @@ export class DoctorsService {
           console.log('Error: ' + error)
         }
       })
-      // .subscribe((data) => { // promise
-      //   console.log("refreshList2 on end methode from doctors service")
-      //   console.log(data)
-      //
-      //   let receivedDoctorList = data as Doctor[];
-      //   this.doctorList = receivedDoctorList;
-      // })
   }
 }

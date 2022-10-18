@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {DoctorsService} from "../doctors-service/doctors.service";
+import {Component, Input, OnInit} from '@angular/core';
+import {Doctor} from "../model/doctor";
 
 @Component({
   selector: 'app-doctor-list',
@@ -7,6 +7,8 @@ import {DoctorsService} from "../doctors-service/doctors.service";
   styleUrls: ['./doctor-list.component.css']
 })
 export class DoctorListComponent implements OnInit {
+  @Input() doctors: Doctor[] = []
+
   displayedColumns : string[] = [
     'identifier',
     'name',
@@ -15,13 +17,13 @@ export class DoctorListComponent implements OnInit {
     'email',
     'specialization',
     'hourlyRate',
-    'clinicId'
+    'clinicId',
+    'clinicName'
   ]
 
-  constructor(protected doctorService : DoctorsService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.doctorService.refreshDoctorList()
   }
 
 }

@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DoctorController {
 
-    private DoctorService doctorService;
+    private final DoctorService doctorService;
 
     @GetMapping
 //    @ResponseStatus(HttpStatus.OK)

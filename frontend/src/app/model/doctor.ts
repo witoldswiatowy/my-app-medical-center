@@ -1,3 +1,5 @@
+import {Clinic} from "./clinic";
+
 export enum MedicalSpecialization {
   CARDIOLOGY = "CARDIOLOGY",
   DERMATOLOGY = "DERMATOLOGY",
@@ -18,5 +20,5 @@ export type Doctor = {
   email: string,
   specialization: MedicalSpecialization,
   hourlyRate: number,
-  clinicId: number
+  clinic: Clinic
 }
