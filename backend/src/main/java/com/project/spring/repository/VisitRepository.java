@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface VisitRepository extends JpaRepository<VisitEntity, Long> {
 
-    List<VisitEntity> findAllByUser(ApplicationUser user);
+//    List<VisitEntity> findAllByUser(ApplicationUser user);
 }

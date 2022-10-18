@@ -26,19 +26,19 @@ public class VisitServiceImpl implements VisitService {
     public List<VisitDto> getVisitsList() {
         return visitRepository.findAll()
                 .stream()
-                .map(visit -> {
-                    return VisitMapper.toVisitDto(visit, visit.getApplicationUser());
-                }).collect(Collectors.toList());    }
-
-    @Override
-    public List<VisitDto> getVisitsList(Long userId) {
-        ApplicationUser applicationUser = applicationUserRepository.findById(userId)
-                .orElseThrow(EntityNotFoundException::new);
-
-        return visitRepository.findAllByUser(applicationUser)
-                .stream()
-                .map(visit -> {
-                    return VisitMapper.toVisitDto(visit, visit.getApplicationUser());
-                }).collect(Collectors.toList());
+                .map(visit -> VisitMapper.toVisitDto(visit, visit.getApplicationUser()))
+                .collect(Collectors.toList());
     }
+
+//    @Override
+//    public List<VisitDto> getVisitsList(Long userId) {
+//        ApplicationUser applicationUser = applicationUserRepository.findById(userId)
+//                .orElseThrow(EntityNotFoundException::new);
+//
+//        return visitRepository.findAllByUser(applicationUser)
+//                .stream()
+//                .map(visit -> {
+//                    return VisitMapper.toVisitDto(visit, visit.getApplicationUser());
+//                }).collect(Collectors.toList());
+//    }
 }

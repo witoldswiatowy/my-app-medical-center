@@ -8,5 +8,5 @@ public interface VisitService {
 
     List<VisitDto> getVisitsList();
 
-    List<VisitDto> getVisitsList(Long userId);
+//    List<VisitDto> getVisitsList(Long userId);
 }

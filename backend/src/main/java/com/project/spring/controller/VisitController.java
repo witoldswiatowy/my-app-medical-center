@@ -6,9 +6,7 @@ import com.project.spring.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,17 +23,17 @@ public class VisitController {
 
     @GetMapping()
     @PreAuthorize("hasRole('ADMIN')")
-    public List<VisitDto> getAllSales() {
-        log.info("getAllSales called");
+    public List<VisitDto> getAllVisits() {
+        log.info("getAllVisits called");
         return visitService.getVisitsList();
     }
 
-    @GetMapping("/{userId}")
-    @PreAuthorize("isAuthenticated()")
-    public List<VisitDto> getUserSales(UsernamePasswordAuthenticationToken principal, @PathVariable Long userId) {
-        log.info("getUserSales called");
-        principalComponent.getUser(principal, userId);
-
-        return visitService.getVisitsList(userId);
-    }
+//    @GetMapping("/{userId}")
+//    @PreAuthorize("isAuthenticated()")
+//    public List<VisitDto> getUserSales(UsernamePasswordAuthenticationToken principal, @PathVariable Long userId) {
+//        log.info("getUserSales called");
+//        principalComponent.getUser(principal, userId);
+//
+//        return visitService.getVisitsList(userId);
+//    }
 }
