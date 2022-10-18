@@ -23,8 +23,4 @@ export class DutiesComponent implements OnInit {
         }
       })
   }
-
-  getDisplayedColumns(): string[] {
-    return []
-  }
 }

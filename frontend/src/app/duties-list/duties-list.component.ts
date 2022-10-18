@@ -8,7 +8,6 @@ import {Duty} from "../model/duty";
 })
 export class DutiesListComponent implements OnInit {
   @Input() duties: Duty[] = []
-  @Input() inputDisplayedColumns: string[] = []
 
   displayedColumns: string[] = [
     'duty-id',
@@ -18,19 +17,6 @@ export class DutiesListComponent implements OnInit {
   ]
 
   constructor() { }
-
-  getDisplayedColumns(): string[] {
-    const visibleColumns = []
-    for (let i = 0; i < this.displayedColumns.length; i++) {
-      if(this.inputDisplayedColumns.includes(this.displayedColumns[i])){
-        continue
-      }
-
-      visibleColumns.push(this.displayedColumns[i]);
-    }
-
-    return visibleColumns
-  }
 
   ngOnInit(): void {
   }
