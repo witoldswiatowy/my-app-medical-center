@@ -9,6 +9,7 @@ import { AuthenticationGuard } from './authentication-service/authentication.gua
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import {DoctorListComponent} from "./doctor-list/doctor-list.component";
 import {AllVisitListComponent} from "./all-visit-list/all-visit-list.component";
+import {DutiesListComponent} from "./duties-list/duties-list.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: "doctors", component: DoctorListComponent },
 
   { path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard] },
+  { path: "duties", component: DutiesListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard] },
 ];
 
 @NgModule({

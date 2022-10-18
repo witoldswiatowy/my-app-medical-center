@@ -1,0 +1,30 @@
+.duties-list-content {
+}
+
+.duties-table {
+  width: 100%;
+  border-radius: 2px;
+  border: 1px solid red;
+}
+
+.mat-column-duty-id {
+  width: 96px;
+  max-width: 96px;
+}
+
+.mat-column-duty-from {
+  width: 128px;
+  max-width: 128px;
+}
+
+.mat-column-duty-to {
+  width: 128px;
+  max-width: 128px;
+}
+
+.mat-column-doctor-id {
+  width: 96px;
+  max-width: 96px;
+}
+
+

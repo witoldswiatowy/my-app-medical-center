@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-title>Duties List</mat-card-title>
+  <mat-card-subtitle>This is a list of duty</mat-card-subtitle>
+  <mat-card-content class="duties-list-content">
+    <table mat-table [dataSource]="duties" class="mat-elevation-z2 duties-table">
+
+      <ng-container matColumnDef="duty-id">
+        <th mat-header-cell *matHeaderCellDef>Duty id</th>
+        <td mat-cell *matCellDef="let duty">{{duty.dutyId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="duty-from">
+        <th mat-header-cell *matHeaderCellDef>Duty from:</th>
+        <td mat-cell *matCellDef="let duty">{{duty.dutyFrom | date :'yyyy-MM-dd HH:mm'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="duty-to">
+        <th mat-header-cell *matHeaderCellDef>Duty to:</th>
+        <td mat-cell *matCellDef="let duty">{{duty.dutyTo | date :'yyyy-MM-dd HH:mm'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="doctor-id">
+        <th mat-header-cell *matHeaderCellDef>Doctor id</th>
+        <td mat-cell *matCellDef="let duty">{{duty.doctorId}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="getDisplayedColumns()"></tr>
+      <tr mat-row *matRowDef="let row; columns: getDisplayedColumns()"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+

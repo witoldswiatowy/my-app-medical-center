@@ -38,6 +38,8 @@ import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { VisitListComponent } from './visit-list/visit-list.component';
 import { AllVisitListComponent } from './all-visit-list/all-visit-list.component';
+import { DutiesListComponent } from './duties-list/duties-list.component';
+import { DutiesComponent } from './duties/duties.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AllVisitListComponent } from './all-visit-list/all-visit-list.component
     DoctorListComponent,
     VisitListComponent,
     AllVisitListComponent,
+    DutiesListComponent,
+    DutiesComponent,
   ],
   imports: [
     BrowserModule,

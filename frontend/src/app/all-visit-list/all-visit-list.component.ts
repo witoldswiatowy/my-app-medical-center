@@ -27,5 +27,4 @@ export class AllVisitListComponent implements OnInit {
   getHiddenColumnNames(): string[] {
     return []
   }
-
 }
