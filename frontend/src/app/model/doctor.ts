@@ -12,8 +12,8 @@ export enum MedicalSpecialization {
 export type Doctor = {
   id: number,
 
-  name: string,
-  surname: string,
+  firstName: string,
+  lastName: string,
   phoneNumber: string,
   email: string,
   specialization: MedicalSpecialization,

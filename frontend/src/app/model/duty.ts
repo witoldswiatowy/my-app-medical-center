@@ -1,7 +1,9 @@
+import {Doctor} from "./doctor";
+
 export type Duty = {
-  dutyId: number,
+  id: number,
   dutyFrom: string,
   dutyTo: string,
-  doctorId: number,
+  doctor: Doctor,
 
 }

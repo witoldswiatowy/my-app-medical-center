@@ -1,3 +1,7 @@
+import {Doctor} from "./doctor";
+import {Duty} from "./duty";
+import {User} from "../user-service/user-service.service";
+
 export enum Status {
   FINISHED= "FINISHED",
   WAITING= "WAITING",
@@ -6,11 +10,11 @@ export enum Status {
 }
 
 export type Visit = {
-  visitId: number,
+  id: number,
   status: Status,
   timeInDuty: string,
   price: number,
-  doctorId: number,
-  dutyId: number,
-  userId: number,
+  doctor: Doctor,
+  duty: Duty,
+  user: User,
 }

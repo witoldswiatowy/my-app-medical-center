@@ -13,7 +13,9 @@ export class DutiesListComponent implements OnInit {
     'duty-id',
     'duty-from',
     'duty-to',
-    'doctor-id'
+    'doctor-id',
+    'doctor-first-name',
+    'doctor-last-name'
   ]
 
   constructor() { }
