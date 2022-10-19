@@ -1,3 +1,15 @@
+.mat-button{
+  margin: 4px;
+}
+.btn-group {
+ display: flex;
+}
+
+.doctor-list {
+  height: 400px;
+  overflow: auto;
+}
+
 .doctor-table{
   width: 100%;
   border: 1px solid white;

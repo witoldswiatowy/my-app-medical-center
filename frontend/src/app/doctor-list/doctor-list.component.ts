@@ -26,4 +26,10 @@ export class DoctorListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showDiv = {
+    gallery : false,
+    current : false,
+    table: false
+  }
+
 }
