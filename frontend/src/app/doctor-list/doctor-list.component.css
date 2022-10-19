@@ -27,3 +27,21 @@ mat-card-footer {
 .record-delete-button {
   border-radius: 16px;
 }
+
+.doctor-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 0 10%;
+}
+
+.doctor-gallery-card {
+  max-width: 500px;
+  width: 25%;
+  margin: 5px;
+}
+
+.doctor-gallery-card-avatar{
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}

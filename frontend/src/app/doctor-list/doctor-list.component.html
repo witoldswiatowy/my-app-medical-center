@@ -1,3 +1,20 @@
+<div class="doctor-gallery">
+  <mat-card *ngFor="let doctor of doctors" class="doctor-gallery-card">
+    <mat-card-header>
+      <div mat-card-avatar class="doctor-gallery-card-avatar"></div>
+      <mat-card-title>{{doctor.firstName}} {{doctor.lastName}}</mat-card-title>
+      <mat-card-subtitle>{{doctor.specialization}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQerSSWMMQM19ER1E1TFVTrQVViyyhZUoxw6YCJv2Z3co3pyvB6OIcW6hPUZhiYZBaev_w&usqp=CAU"
+         alt="Photo of dr. {{doctor.lastName}}">
+    <mat-card-content>
+      <p>
+        {{doctor.email}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
 <mat-card>
   <mat-card-title>List of doctors</mat-card-title>
   <mat-card-subtitle>List of all existing doctor in db</mat-card-subtitle>
