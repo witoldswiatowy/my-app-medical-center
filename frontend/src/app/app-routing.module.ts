@@ -10,6 +10,7 @@ import {RegistrationFormComponent} from './registration-form/registration-form.c
 import {AllVisitListComponent} from "./all-visit-list/all-visit-list.component";
 import {DutiesComponent} from "./duties/duties.component";
 import {DoctorsComponent} from "./doctors/doctors.component";
+import {DoctorFormComponent} from "./doctor-form/doctor-form.component";
 
 const routes: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "register", component: RegistrationFormComponent},
   {path: "users", component: UserListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "doctors", component: DoctorsComponent},
+  {path: "add_doctor", component: DoctorFormComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
 ];

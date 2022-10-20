@@ -40,6 +40,7 @@ import { VisitListComponent } from './visit-list/visit-list.component';
 import { AllVisitListComponent } from './all-visit-list/all-visit-list.component';
 import { DutiesListComponent } from './duties-list/duties-list.component';
 import { DutiesComponent } from './duties/duties.component';
+import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { DutiesComponent } from './duties/duties.component';
     AllVisitListComponent,
     DutiesListComponent,
     DutiesComponent,
+    DoctorFormComponent,
   ],
   imports: [
     BrowserModule,
