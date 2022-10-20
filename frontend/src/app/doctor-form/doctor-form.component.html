@@ -1,1 +1,47 @@
-<p>doctor-form works!</p>
+<mat-card>
+  <mat-card-title>Formula doctor</mat-card-title>
+  <mat-card-subtitle>Adding new doctor</mat-card-subtitle>
+  <mat-card-content class="add-doctor-form-content">
+    <form (ngSubmit)="sendAddDoctorRequest()">
+      <mat-form-field appearance="standard">
+        <mat-label>First name:</mat-label>
+        <input matInput type="text" placeholder="First name:" [(ngModel)]="request.firstName" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Last name:</mat-label>
+        <input matInput type="text" placeholder="Last name:" [(ngModel)]="request.lastName" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Phone number:</mat-label>
+        <input matInput type="text" placeholder="Phone number:" [(ngModel)]="request.phoneNumber" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Email:</mat-label>
+        <input matInput type="text" placeholder="Email:" [(ngModel)]="request.email" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Specialization:</mat-label>
+        <input matInput type="text" placeholder="Specialization:" [(ngModel)]="request.specialization" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Hourly rate:</mat-label>
+        <input matInput type="number" step="0.01" min="0.0" placeholder="Hourly rate:" [(ngModel)]="request.hourlyRate" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Clinic identifier:</mat-label>
+        <input matInput type="text" placeholder="Clinic identifier:" [(ngModel)]="request.clinicId" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <div class="button-row">
+        <button class="submit-button" type="submit" mat-button mat-raised-button>Submit</button>
+        <button class="clear-button" type="reset" mat-button mat-raised-button >Clear</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
