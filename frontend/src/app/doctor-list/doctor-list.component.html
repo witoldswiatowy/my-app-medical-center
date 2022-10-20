@@ -1,12 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="btn-group">
-        <div class="mat-button mat-raised-button" (click)="showDiv.gallery = !showDiv.gallery;showDiv.table = false">
+  <div>
+    <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN' || 'ROLE_MODERATOR')" class="col-md-4">
+      <div  class="btn-group">
+        <div class="mat-button mat-raised-button"
+             (click)="showDiv.gallery = !showDiv.gallery;showDiv.table = false">
           Gallery
         </div>
-        <div class="mat-button mat-raised-button" (click)="showDiv.table = !showDiv.table;showDiv.gallery = false">
+        <div class="mat-button mat-raised-button"
+             (click)="showDiv.table = !showDiv.table;showDiv.gallery = false">
           Table
+        </div>
+      </div>
+      <div>
+        <div class="mat-button mat-fab">
+          <mat-icon>add</mat-icon>
         </div>
       </div>
     </div>
@@ -19,11 +26,12 @@
           <mat-card-title>{{doctor.firstName}} {{doctor.lastName}}</mat-card-title>
           <mat-card-subtitle>{{doctor.specialization}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQerSSWMMQM19ER1E1TFVTrQVViyyhZUoxw6YCJv2Z3co3pyvB6OIcW6hPUZhiYZBaev_w&usqp=CAU"
+        <img mat-card-image
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQerSSWMMQM19ER1E1TFVTrQVViyyhZUoxw6YCJv2Z3co3pyvB6OIcW6hPUZhiYZBaev_w&usqp=CAU"
              alt="Photo of dr. {{doctor.lastName}}">
         <mat-card-content>
           <p>
-            {{doctor.email}}
+            Some description
           </p>
         </mat-card-content>
       </mat-card>

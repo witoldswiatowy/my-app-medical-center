@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Doctor} from "../model/doctor";
+import {AuthenticationServiceService} from "../authentication-service/authentication-service.service";
 
 @Component({
   selector: 'app-doctor-list',
@@ -21,14 +22,13 @@ export class DoctorListComponent implements OnInit {
     'clinicName'
   ]
 
-  constructor() { }
+  constructor(public authService: AuthenticationServiceService) { }
 
   ngOnInit(): void {
   }
 
   showDiv = {
-    gallery : false,
-    current : false,
+    gallery : true,
     table: false
   }
 
