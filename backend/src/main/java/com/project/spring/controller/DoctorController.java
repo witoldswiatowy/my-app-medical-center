@@ -32,4 +32,11 @@ public class DoctorController {
         log.info("addDoctor called");
         return doctorService.hireDoctor(request);
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteDoctorById(@PathVariable Long id){
+        log.info("deleteDoctorById called");
+        doctorService.fireDoctorById(id);
+    }
 }
