@@ -26,12 +26,15 @@
           <mat-card-title>{{doctor.firstName}} {{doctor.lastName}}</mat-card-title>
           <mat-card-subtitle>{{doctor.specialization}}</mat-card-subtitle>
         </mat-card-header>
+        <div class="doctor-gallery-card-image">
         <img mat-card-image
-             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQerSSWMMQM19ER1E1TFVTrQVViyyhZUoxw6YCJv2Z3co3pyvB6OIcW6hPUZhiYZBaev_w&usqp=CAU"
-             alt="Photo of dr. {{doctor.lastName}}">
+             src={{doctor.imgUrl}} onerror="this.src='assets/defaultAvatar.png';"
+             alt="Photo of dr. {{doctor.lastName}}"
+             layout-fill>
+        </div>
         <mat-card-content>
           <p>
-            Some description
+            {{doctor.description}}
           </p>
         </mat-card-content>
       </mat-card>

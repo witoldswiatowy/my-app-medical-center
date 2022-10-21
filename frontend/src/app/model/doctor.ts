@@ -21,6 +21,8 @@ export type Doctor = {
   email: string,
   specialization: MedicalSpecialization,
   hourlyRate: number,
+  description: string,
+  imgUrl: string,
   clinic: Clinic
 }
 
@@ -31,5 +33,7 @@ export type AddDoctorRequest = {
   email: string,
   specialization: MedicalSpecialization,
   hourlyRate: number,
+  description: string,
+  imgUrl: string,
   clinicId: number
 }

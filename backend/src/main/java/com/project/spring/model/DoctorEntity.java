@@ -25,6 +25,13 @@ public class DoctorEntity extends PersonEntity {
     @Column(name = "hourly_rate", nullable = false)
     private BigDecimal hourlyRate;
 
+    @Lob
+    @Column(name = "discription")
+    private String description;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     private MedicalClinicEntity clinic;
 

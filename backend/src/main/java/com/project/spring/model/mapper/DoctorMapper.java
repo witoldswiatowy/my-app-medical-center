@@ -30,6 +30,8 @@ public class DoctorMapper {
                 .lastName(doctorEntity.getLastName())
                 .phoneNumber(doctorEntity.getPhoneNumber())
                 .email(doctorEntity.getEmail())
+                .description(doctorEntity.getDescription())
+                .imgUrl(doctorEntity.getImgUrl())
                 .specialization(doctorEntity.getSpecialization())
                 .hourlyRate(doctorEntity.getHourlyRate())
                 .clinic(clinicDto)
@@ -51,6 +53,8 @@ public class DoctorMapper {
         doctorEntity.setLastName(doctorDto.getLastName());
         doctorEntity.setPhoneNumber(doctorDto.getPhoneNumber());
         doctorEntity.setEmail(doctorDto.getEmail());
+        doctorEntity.setDescription(doctorDto.getDescription());
+        doctorEntity.setImgUrl(doctorDto.getImgUrl());
         doctorEntity.setSpecialization(doctorDto.getSpecialization());
         doctorEntity.setHourlyRate(doctorDto.getHourlyRate());
         doctorEntity.setClinic(clinicEntity);
@@ -66,6 +70,8 @@ public class DoctorMapper {
         doctorEntity.setLastName(request.getLastName());
         doctorEntity.setPhoneNumber(request.getPhoneNumber());
         doctorEntity.setEmail(request.getEmail());
+        doctorEntity.setDescription(request.getDescription());
+        doctorEntity.setImgUrl(request.getImgUrl());
         doctorEntity.setSpecialization(request.getSpecialization());
         doctorEntity.setHourlyRate(request.getHourlyRate());
         return doctorEntity;

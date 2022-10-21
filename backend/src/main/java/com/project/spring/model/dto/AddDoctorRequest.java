@@ -16,6 +16,8 @@ public class AddDoctorRequest {
     private String lastName;
     private String phoneNumber;
     private String email;
+    private String description;
+    private String imgUrl;
     private MedicalSpecialization specialization;
     private BigDecimal hourlyRate;
     private Long clinicId;

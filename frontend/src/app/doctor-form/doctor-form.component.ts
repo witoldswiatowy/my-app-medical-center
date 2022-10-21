@@ -18,6 +18,8 @@ export class DoctorFormComponent implements OnInit {
     email: '',
     specialization: MedicalSpecialization.EMPTY,
     hourlyRate: 1.0,
+    description: '',
+    imgUrl: '',
     clinicId: 0
   }
 
