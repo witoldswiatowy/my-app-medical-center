@@ -1,5 +1,6 @@
 package com.project.spring.controller;
 
+import com.project.spring.model.dto.AddDoctorRequest;
 import com.project.spring.model.dto.DoctorDto;
 import com.project.spring.service.DoctorService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +21,15 @@ public class DoctorController {
 
     @GetMapping
 //    @ResponseStatus(HttpStatus.OK)
-    public List<DoctorDto> getListOfDoctor(){
+    public List<DoctorDto> getListOfDoctor() {
         log.info("Logger when execute methode from DoctorController");
         return doctorService.getAllDoctors();
+    }
+
+    @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
+    public DoctorDto addDoctor(@RequestBody AddDoctorRequest request) {
+        log.info("addDoctor called");
+        return doctorService.hireDoctor(request);
     }
 }

@@ -4,6 +4,7 @@ import com.project.spring.exception.ParamsIsEmptyException;
 import com.project.spring.exception.ParamsIsIncorrectException;
 import com.project.spring.model.DoctorEntity;
 import com.project.spring.model.MedicalClinicEntity;
+import com.project.spring.model.dto.AddDoctorRequest;
 import com.project.spring.model.dto.DoctorDto;
 import com.project.spring.model.mapper.DoctorMapper;
 import com.project.spring.model.mapper.MedicalClinicMapper;
@@ -50,18 +51,20 @@ public class DoctorServiceImpl implements DoctorService {
      * {@inheritDoc}
      */
     @Override
-    public DoctorDto hireDoctor(DoctorDto doctorDto) {
-        validateCorrectDtoForCrud(doctorDto);
-        DoctorEntity doctorEntity = DoctorMapper.toDoctorEntity(doctorDto);
-        if (doctorDto.getClinic().getId() != null) {
-            MedicalClinicEntity medicalClinicEntity = MedicalClinicMapper.toMedicalClinicEntity(doctorDto.getClinic());
-            MedicalClinicEntity managedMedicalClinicEntity = medicalClinicRepository.save(medicalClinicEntity);
-            doctorEntity.setClinic(managedMedicalClinicEntity);
-        }
+    public DoctorDto hireDoctor(AddDoctorRequest request) {
+        validateCorrectRequestForCrud(request);
+
+        DoctorEntity doctorEntity = DoctorMapper.requestToDoctorEntity(request);
+        MedicalClinicEntity medicalClinicEntity = medicalClinicRepository.findById(request.getClinicId())
+                .orElseThrow(() -> new EntityNotFoundException("Clinic with id: " + request.getClinicId() + " does not exist in DB, delete is not permitted!"));
+        doctorEntity.setClinic(medicalClinicEntity);
+
         DoctorEntity savedDoctorEntity = doctorRepository.save(doctorEntity);
+
         log.info("Create doctor {}", savedDoctorEntity);
         return DoctorMapper.toDoctorDto(savedDoctorEntity);
     }
+
 
     /**
      * {@inheritDoc}
@@ -112,6 +115,34 @@ public class DoctorServiceImpl implements DoctorService {
             throw new IllegalArgumentException();
         }
         if (doctorDto.getSpecialization() != null) {
+            log.error("Doctor need any specialization!");
+            throw new ParamsIsEmptyException("Doctor need any specialization!");
+        }
+    }
+
+    private void validateCorrectRequestForCrud(AddDoctorRequest request) {
+        if (request == null) {
+            log.error("Object what you want to save is null!");
+            throw new IllegalArgumentException();
+        }
+        if (request.getPhoneNumber() == null) {
+            log.error("Doctor must have a phone number!");
+            throw new IllegalArgumentException();
+        }
+        if (request.getClinicId() == null) {
+            log.error("Doctor must have a medical clinic!");
+            throw new IllegalArgumentException();
+        }
+        if (request.getHourlyRate() != null) {
+            if (request.getHourlyRate().compareTo(new BigDecimal(MINIMUM_HOURLY_RATE)) <= 0) {
+                log.error("Hourly rate can not be lower than minimum");
+                throw new ParamsIsIncorrectException("Hourly rate can not be lower than minimum");
+            }
+        } else {
+            log.error("Doctor must have a declared hourly rate!");
+            throw new IllegalArgumentException();
+        }
+        if (request.getSpecialization() == null) {
             log.error("Doctor need any specialization!");
             throw new ParamsIsEmptyException("Doctor need any specialization!");
         }

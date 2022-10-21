@@ -1,6 +1,7 @@
 package com.project.spring.service;
 
 import com.project.spring.model.DoctorEntity;
+import com.project.spring.model.dto.AddDoctorRequest;
 import com.project.spring.model.dto.DoctorDto;
 
 import javax.persistence.EntityNotFoundException;
@@ -31,10 +32,10 @@ public interface DoctorService {
      * Persists the passed doctor.
      * If the doctor has already DB ID assigned, then the implementation might throw an {@link IllegalArgumentException}.
      *
-     * @param doctorDto - params of doctor to create
+     * @param request - params of doctor to create
      * @return created {@link DoctorDto}
      */
-    DoctorDto hireDoctor(DoctorDto doctorDto);
+    DoctorDto hireDoctor(AddDoctorRequest request);
 
     /**
      * Update the passed doctor.

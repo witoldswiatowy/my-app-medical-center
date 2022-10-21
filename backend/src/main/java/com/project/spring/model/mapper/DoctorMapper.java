@@ -2,6 +2,7 @@ package com.project.spring.model.mapper;
 
 import com.project.spring.model.DoctorEntity;
 import com.project.spring.model.MedicalClinicEntity;
+import com.project.spring.model.dto.AddDoctorRequest;
 import com.project.spring.model.dto.DoctorDto;
 import com.project.spring.model.dto.MedicalClinicDto;
 
@@ -55,6 +56,21 @@ public class DoctorMapper {
         doctorEntity.setClinic(clinicEntity);
         return doctorEntity;
     }
+
+    public static DoctorEntity requestToDoctorEntity (AddDoctorRequest request){
+        if (request == null){
+            return null;
+        }
+        DoctorEntity doctorEntity = new DoctorEntity();
+        doctorEntity.setFirstName(request.getFirstName());
+        doctorEntity.setLastName(request.getLastName());
+        doctorEntity.setPhoneNumber(request.getPhoneNumber());
+        doctorEntity.setEmail(request.getEmail());
+        doctorEntity.setSpecialization(request.getSpecialization());
+        doctorEntity.setHourlyRate(request.getHourlyRate());
+        return doctorEntity;
+    }
+
     public static List<DoctorDto> toDoctorDtos(List<DoctorEntity> doctorEntities) {
         return doctorEntities.stream()
                 .map(DoctorMapper::toDoctorDto)
