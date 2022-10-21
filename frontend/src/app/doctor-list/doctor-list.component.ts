@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Doctor} from "../model/doctor";
 import {AuthenticationServiceService} from "../authentication-service/authentication-service.service";
+import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-doctor-list',
@@ -10,7 +13,7 @@ import {AuthenticationServiceService} from "../authentication-service/authentica
 export class DoctorListComponent implements OnInit {
   @Input() doctors: Doctor[] = []
 
-  displayedColumns : string[] = [
+  displayedColumns: string[] = [
     'identifier',
     'name',
     'surname',
@@ -19,17 +22,47 @@ export class DoctorListComponent implements OnInit {
     'specialization',
     'hourlyRate',
     'clinicId',
-    'clinicName'
+    'clinicName',
+    'delete-button'
   ]
 
-  constructor(public authService: AuthenticationServiceService) { }
+  constructor(
+    public authService: AuthenticationServiceService,
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
   showDiv = {
-    gallery : true,
+    gallery: true,
     table: false
+  }
+
+  deleteDoctor(id: number): void {
+    this.httpClient.delete<Doctor>("http://localhost:8080/api/doctor/" + id)
+      .subscribe({
+        next: (_) => {
+          this.snackBar.open('Doctor has been deleted', undefined, {
+            verticalPosition: 'top',
+            horizontalPosition: 'start',
+            duration: 2000
+          })
+
+          this.router.navigate(['/doctors'])
+        },
+        error: (error) => {
+          console.log('Error : ' + error)
+          this.snackBar.open('Failed to delete doctor!', undefined, {
+            verticalPosition: 'top',
+            horizontalPosition: 'start',
+            duration: 2000
+          })
+        }
+      })
   }
 
 }

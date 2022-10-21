@@ -1,7 +1,7 @@
 <div class="container">
   <div>
     <div *ngIf="authService.isLoggedIn() && authService.hasRole('ROLE_ADMIN' || 'ROLE_MODERATOR')" class="col-md-4">
-      <div  class="btn-group">
+      <div class="btn-group">
         <div class="mat-button mat-raised-button"
              (click)="showDiv.gallery = !showDiv.gallery;showDiv.table = false">
           Gallery
@@ -86,6 +86,15 @@
             <ng-container matColumnDef="clinicName">
               <th mat-header-cell *matHeaderCellDef>Clinic name</th>
               <td mat-cell *matCellDef="let doctor">{{doctor.clinic.name}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete-button">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let doctor">
+                <button class="record-delete-button" mat-button mat-raised-button color="warn"
+                        (click)="deleteDoctor(doctor.id)">Delete
+                </button>
+              </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
