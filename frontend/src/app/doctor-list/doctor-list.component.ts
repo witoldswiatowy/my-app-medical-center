@@ -4,6 +4,7 @@ import {AuthenticationServiceService} from "../authentication-service/authentica
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {DoctorsComponent} from "../doctors/doctors.component";
 
 @Component({
   selector: 'app-doctor-list',
@@ -28,6 +29,7 @@ export class DoctorListComponent implements OnInit {
 
   constructor(
     public authService: AuthenticationServiceService,
+    public doctorsComponent: DoctorsComponent,
     private httpClient: HttpClient,
     private snackBar: MatSnackBar,
     private router: Router
@@ -51,7 +53,7 @@ export class DoctorListComponent implements OnInit {
             horizontalPosition: 'start',
             duration: 2000
           })
-
+          this.doctorsComponent.refreshDoctorList()
           this.router.navigate(['/doctors'])
         },
         error: (error) => {

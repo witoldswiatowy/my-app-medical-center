@@ -12,9 +12,8 @@ export class DoctorsComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  // public refreshDoctorList(): void {
-  ngOnInit(): void {
-    console.log("refreshList1 on start methode from doctors service")
+  public refreshDoctorList(): void {
+    console.log("refreshList1 on start methode from doctors component")
     this.http.get<Doctor[]>('http://localhost:8080/api/doctor')
       .subscribe({
         next: (data) => {
@@ -25,8 +24,8 @@ export class DoctorsComponent implements OnInit {
         }
       })
   }
-  // ngOnInit(): void {
-    // this.refreshDoctorList()
-  // }
+  ngOnInit(): void {
+    this.refreshDoctorList()
+  }
 
 }

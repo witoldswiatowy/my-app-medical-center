@@ -12,7 +12,7 @@ export class DoctorsService {
 
   public refreshDoctorList(): void {
     console.log("refreshList1 on start methode from doctors service")
-    this.http.get<Doctor[]>('http://localhost:8080/doctor')
+    this.http.get<Doctor[]>('http://localhost:8080/api/doctor')
       .subscribe({
         next: (data) => {
           this.doctorList = data;

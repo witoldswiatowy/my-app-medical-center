@@ -30,6 +30,19 @@ export class DoctorFormComponent implements OnInit {
   ) {
   }
 
+  MedicalSpecialization = MedicalSpecialization;
+  selected: MedicalSpecialization = MedicalSpecialization.CARDIOLOGY;
+  specializations = [
+    MedicalSpecialization.CARDIOLOGY,
+    MedicalSpecialization.DERMATOLOGY,
+    MedicalSpecialization.ENDOCRINOLOGY,
+    MedicalSpecialization.PEDIATRICS,
+    MedicalSpecialization.GYNECOLOGY,
+    MedicalSpecialization.OPHTHALMOLOGY,
+    MedicalSpecialization.ORTHOPEDIC_SURGERY,
+    MedicalSpecialization.OCCUPATIONAL_MEDICINE
+  ];
+
   ngOnInit(): void {
   }
 

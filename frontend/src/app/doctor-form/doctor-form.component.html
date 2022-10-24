@@ -5,17 +5,17 @@
     <form (ngSubmit)="sendAddDoctorRequest()">
       <mat-form-field appearance="standard">
         <mat-label>First name:</mat-label>
-        <input matInput type="text" placeholder="First name:" [(ngModel)]="request.firstName" [ngModelOptions]="{standalone: true}">
+        <input matInput type="text" placeholder="First name:" [(ngModel)]="request.firstName" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Last name:</mat-label>
-        <input matInput type="text" placeholder="Last name:" [(ngModel)]="request.lastName" [ngModelOptions]="{standalone: true}">
+        <input matInput type="text" placeholder="Last name:" [(ngModel)]="request.lastName" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Phone number:</mat-label>
-        <input matInput type="text" placeholder="Phone number:" [(ngModel)]="request.phoneNumber" [ngModelOptions]="{standalone: true}">
+        <input matInput type="text" placeholder="Phone number:" [(ngModel)]="request.phoneNumber" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
@@ -25,17 +25,21 @@
 
       <mat-form-field appearance="standard">
         <mat-label>Specialization:</mat-label>
-        <input matInput type="text" placeholder="Specialization:" [(ngModel)]="request.specialization" [ngModelOptions]="{standalone: true}">
+        <mat-select [(ngModel)]="request.specialization" placeholder="Specialization:" [ngModelOptions]="{standalone: true}" >
+          <mat-option  *ngFor="let specialization of specializations" [value]="specialization">
+            {{MedicalSpecialization[specialization]}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Hourly rate:</mat-label>
-        <input matInput type="number" step="0.01" min="0.0" placeholder="Hourly rate:" [(ngModel)]="request.hourlyRate" [ngModelOptions]="{standalone: true}">
+        <input matInput type="number" step="0.01" min="0.0" placeholder="Hourly rate:" [(ngModel)]="request.hourlyRate" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Clinic identifier:</mat-label>
-        <input matInput type="text" placeholder="Clinic identifier:" [(ngModel)]="request.clinicId" [ngModelOptions]="{standalone: true}">
+        <input matInput type="text" placeholder="Clinic identifier:" [(ngModel)]="request.clinicId" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <div class="button-row">
