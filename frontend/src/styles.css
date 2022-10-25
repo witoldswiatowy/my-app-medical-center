@@ -2,17 +2,17 @@
 
 
 :root {
-  --color-html-background: #EEEEEE;   /* color level 1*/
-  --color-level-2: #DDDDDD;
-  --color-level-3: #cccccc;
-  --color-main: #bbbbbb;              /* color level 4*/
-  --color-level-5: #aaaaaa;
-  --color-page-header: #9b9b9b;       /* color level 6*/
-  --color-level-7: #8d8d8d;
-  --color-level-8: #808080;
-  --color-level-9: #747474;
-  --color-level-10: #696969;
-  --gopher-color: #66d7e9;
+  --color-html-background: #EEF6FC;   /* color level 1*/
+  --color-level-2: #DDEEF9;
+  --color-level-3: #D4EAF8;
+  --color-main: #CBE5F6;              /* color level 4*/
+  --color-level-5: #97CAED;
+  --color-page-header: #6096BA;       /* color level 6*/
+  --color-level-7: #2B8CCD;
+  --color-level-8: #8B8C89;
+  --color-level-9: #185D8B;
+  --color-button: #274C77;            /* color level 10*/
+
 }
 
 html, body {
@@ -25,7 +25,41 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.mat-card{
+  background-color: var(--color-level-8);
+}
+
+.submit-button {
+  background-color: var(--color-button);
+}
+
+.clear-button{
+  background-color: #dc0000;
+}
+
+.form-button-row {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.form-button-row button {
+  min-width: 110px;
+  margin: 4px;
+}
+
 .error-snackbar{
   background-color: crimson;
   color: white;
 }
+
+/*
+https://coolors.co/palette/eef6fc-cbe5f6-97caed-63b0e3-3498db-2280bf-185d8b-0f3a57
+EEF6FC
+CBE5F6
+97CAED
+63B0E3
+3498DB
+2280BF
+185D8B
+0F3A57
+*/

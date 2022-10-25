@@ -3,20 +3,6 @@
   flex-direction: column;
 }
 
-.form-button-row {
-  display: flex;
-  flex-direction: row-reverse;
-}
-
-.form-button-row button {
-  min-width: 110px;
-  margin: 0 4px;
-}
-
-.submit-button {
-  background-color: var(--gopher-color);
-}
-
 .notification {
   border: 2px solid rgba(255, 0, 0, 0.4);
   border-radius: 4px;
