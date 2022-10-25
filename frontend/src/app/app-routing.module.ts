@@ -11,6 +11,7 @@ import {AllVisitListComponent} from "./all-visit-list/all-visit-list.component";
 import {DutiesComponent} from "./duties/duties.component";
 import {DoctorsComponent} from "./doctors/doctors.component";
 import {DoctorFormComponent} from "./doctor-form/doctor-form.component";
+import {ContactComponent} from "./contact/contact.component";
 
 const routes: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "add_doctor", component: DoctorFormComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
+  {path: "contact", component: ContactComponent},
 ];
 
 @NgModule({

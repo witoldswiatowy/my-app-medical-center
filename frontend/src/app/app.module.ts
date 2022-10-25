@@ -41,6 +41,8 @@ import { AllVisitListComponent } from './all-visit-list/all-visit-list.component
 import { DutiesListComponent } from './duties-list/duties-list.component';
 import { DutiesComponent } from './duties/duties.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
+import { ContactComponent } from './contact/contact.component';
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
@@ -57,31 +59,33 @@ import { DoctorFormComponent } from './doctor-form/doctor-form.component';
     DutiesListComponent,
     DutiesComponent,
     DoctorFormComponent,
+    ContactComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatCardModule,
-    MatGridListModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatTableModule,
-    MatCheckboxModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatDividerModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatProgressBarModule,
-    MatSnackBarModule,
-    MatPaginatorModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatCardModule,
+        MatGridListModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatTableModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatDatepickerModule,
+        MatDividerModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatProgressBarModule,
+        MatSnackBarModule,
+        MatPaginatorModule,
+        MatListModule
+    ],
   providers: [
     UserServiceService,
     {
