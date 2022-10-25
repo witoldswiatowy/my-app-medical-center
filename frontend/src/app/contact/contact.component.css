@@ -1,3 +1,36 @@
 .mat-list-item {
   color: black;
 }
+
+.contact{
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3{
+  display: flex;
+  justify-content: center;
+}
+h3{
+  margin: 0;
+}
+
+.contact-google-map{
+  display: flex;
+  justify-content: center;
+}
+
+.contact-telephone-list{
+  border: solid black;
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.contact-telephone-list h3{
+  font-weight: bold;
+}
+mat-list-item{
+  font-size: small;
+}
