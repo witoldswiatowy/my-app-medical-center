@@ -1,14 +1,13 @@
 package com.project.spring.controller;
 
 import com.project.spring.component.PrincipalComponent;
+import com.project.spring.model.dto.BookingVisitRequest;
 import com.project.spring.model.dto.VisitDto;
 import com.project.spring.service.VisitService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +35,10 @@ public class VisitController {
 //
 //        return visitService.getVisitsList(userId);
 //    }
+
+    @PostMapping
+    public VisitDto bookingVisit (@RequestBody BookingVisitRequest request){
+        log.info("bookingVisit called");
+        return visitService.bookingVisit(request);
+    }
 }

@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class BookingVisitRequest {
 
     private LocalDateTime timeInDuty;
-    private String specialization;
+    private String specialization; //może wyszukiwanie po pecjalizacji
     private Long doctorId;
     private Long patientId;
     private Long dutyId;
