@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 @Setter
 @Builder
 public class BookingVisitRequest {
-
-    private LocalDateTime timeInDuty;
-    private String specialization; //może wyszukiwanie po pecjalizacji
+//todo z frontendu wysyła się wybraną godzine z listy z wybranego duty, nie ma datepickera, on moze byc w tworzeniu duty
+    private LocalDateTime timeInDuty; //to tez nie bedzie date na pewno
+//    private String specialization; //może wyszukiwanie po pecjalizacji
     private Long doctorId;
     private Long patientId;
     private Long dutyId;

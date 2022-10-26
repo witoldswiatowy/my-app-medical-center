@@ -1,1 +1,41 @@
-<p>visit-form works!</p>
+<mat-card>
+  <mat-card-title>Formula for visit</mat-card-title>
+  <mat-card-subtitle>Booking new visit
+  <p>
+    DO POPRAWY
+  </p>
+  <p>
+  TODO: z frontendu wysyła się wybraną godzine z listy z wybranego duty, nie ma datepickera, on moze byc w tworzeniu duty
+  </p>
+  </mat-card-subtitle>
+
+  <mat-card-content class="booking-visit-form-content">
+    <form (ngSubmit)="sendBookingVisitRequest()">
+
+      <mat-form-field appearance="standard">
+        <mat-label>Time in duty:</mat-label>
+        <input matInput type="text" placeholder="Time in duty: " [(ngModel)]="request.timeInDuty" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Doctor id: </mat-label>
+        <input matInput type="text" placeholder="Doctor identifier:" [(ngModel)]="request.doctorId" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Duty id: </mat-label>
+        <input matInput type="text" placeholder="Duty identifier:" [(ngModel)]="request.dutyId" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Patient id: </mat-label>
+        <input matInput type="text" placeholder="Patient identifier:" [(ngModel)]="request.userId" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+
+      <div class="form-button-row">
+        <button class="submit-button" type="submit" mat-button mat-raised-button>Submit</button>
+        <button class="clear-button" type="reset" mat-button mat-raised-button >Clear</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

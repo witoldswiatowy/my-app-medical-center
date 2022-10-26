@@ -18,3 +18,10 @@ export type Visit = {
   duty: Duty,
   user: User,
 }
+
+export type BookingVisitRequest = {
+  timeInDuty: string,
+  doctorId: number,
+  dutyId: number,
+  userId: number,
+}
