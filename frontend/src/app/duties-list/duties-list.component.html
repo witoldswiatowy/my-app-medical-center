@@ -1,6 +1,13 @@
 <mat-card>
-  <mat-card-title>Duties List</mat-card-title>
-  <mat-card-subtitle>This is a list of duty</mat-card-subtitle>
+  <div class="duties-list">
+    <div class="duties-title">
+    <mat-card-title>Duties List</mat-card-title>
+    <mat-card-subtitle>This is a list of duty</mat-card-subtitle>
+    </div>
+    <div class="mat-fab">
+      <mat-icon [routerLink]="['/add_duty']">add</mat-icon>
+    </div>
+  </div>
   <mat-card-content class="duties-list-content">
     <table mat-table [dataSource]="duties" class="mat-elevation-z2 duties-table">
 
