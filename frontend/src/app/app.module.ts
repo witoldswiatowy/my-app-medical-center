@@ -43,6 +43,7 @@ import { DutiesComponent } from './duties/duties.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { ContactComponent } from './contact/contact.component';
 import {MatListModule} from "@angular/material/list";
+import { VisitFormComponent } from './visit-form/visit-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import {MatListModule} from "@angular/material/list";
     DutiesComponent,
     DoctorFormComponent,
     ContactComponent,
+    VisitFormComponent,
   ],
     imports: [
         BrowserModule,
