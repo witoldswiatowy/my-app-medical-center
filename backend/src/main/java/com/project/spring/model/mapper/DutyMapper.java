@@ -2,6 +2,7 @@ package com.project.spring.model.mapper;
 
 import com.project.spring.model.DoctorEntity;
 import com.project.spring.model.DutyEntity;
+import com.project.spring.model.dto.AddDutyRequest;
 import com.project.spring.model.dto.DoctorDto;
 import com.project.spring.model.dto.DutyDto;
 
@@ -42,6 +43,17 @@ public class DutyMapper {
         dutyEntity.setDutyFrom(dutyDto.getDutyFrom());
         dutyEntity.setDutyTo(dutyDto.getDutyTo());
         dutyEntity.setDoctor(doctorEntity);
+        return dutyEntity;
+    }
+
+    public static DutyEntity requestToDutyEntity(AddDutyRequest request) {
+        if (request == null) {
+            return null;
+        }
+
+        DutyEntity dutyEntity = new DutyEntity();
+        dutyEntity.setDutyFrom(request.getDutyFrom());
+        dutyEntity.setDutyTo(request.getDutyTo());
         return dutyEntity;
     }
 

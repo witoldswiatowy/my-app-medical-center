@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AddDutyRequest, Duty} from "../model/duty";
+import {HttpClient} from "@angular/common/http";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-duties-form',
@@ -7,9 +11,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DutiesFormComponent implements OnInit {
 
-  constructor() { }
+  request: AddDutyRequest = {
+    dutyFrom: "",
+    dutyTo: "",
+    doctorId: 0
+  }
+
+  constructor(
+    private httpClient: HttpClient,
+    private snackBar: MatSnackBar,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  sendAddDutyRequest(): void {
+    this.httpClient.post<Duty>("http://localhost:8080/api/duty", this.request)
+      .subscribe({
+        next: () => {
+          this.snackBar.open('Add duty successfully!', undefined, {
+            verticalPosition: 'top',
+            horizontalPosition: 'start',
+            duration: 2000
+          })
+
+          this.router.navigate(['/duties'])
+        },
+        error: (error) => {
+          this.snackBar.open('Failed to add duty!', undefined, {
+            verticalPosition: 'top',
+            horizontalPosition: 'start',
+            duration: 2000
+          })
+        }
+      })
+  }
 }

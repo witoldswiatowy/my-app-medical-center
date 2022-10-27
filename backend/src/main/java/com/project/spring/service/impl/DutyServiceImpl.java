@@ -1,14 +1,19 @@
 package com.project.spring.service.impl;
 
+import com.project.spring.model.DoctorEntity;
+import com.project.spring.model.DutyEntity;
+import com.project.spring.model.dto.AddDutyRequest;
 import com.project.spring.model.dto.DutyDto;
 import com.project.spring.model.mapper.DutyMapper;
 import com.project.spring.repository.ApplicationUserRepository;
+import com.project.spring.repository.DoctorRepository;
 import com.project.spring.repository.DutyRepository;
 import com.project.spring.service.DutyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +24,7 @@ public class DutyServiceImpl implements DutyService {
 
     private final ApplicationUserRepository applicationUserRepository;
     private final DutyRepository dutyRepository;
+    private final DoctorRepository doctorRepository;
 
     @Override
     public List<DutyDto> getDutiesList() {
@@ -26,5 +32,18 @@ public class DutyServiceImpl implements DutyService {
                 .stream()
                 .map(DutyMapper::toDutyDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public DutyDto addDuty(AddDutyRequest request) {
+        DoctorEntity doctorEntity = doctorRepository.findById(request.getDoctorId())
+                .orElseThrow(() -> new EntityNotFoundException("Doctor with id: " + request.getDoctorId() + " does not exist in DB, delete is not permitted!"));
+
+        DutyEntity dutyEntity = DutyMapper.requestToDutyEntity(request);
+        dutyEntity.setDoctor(doctorEntity);
+
+        DutyEntity savedDutyEntity = dutyRepository.save(dutyEntity);
+        log.info("Create duty {}", savedDutyEntity);
+        return DutyMapper.toDutyDto(savedDutyEntity);
     }
 }
