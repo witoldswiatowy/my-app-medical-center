@@ -6,19 +6,17 @@
 
       <mat-form-field appearance="standard">
         <mat-label>Duty from:</mat-label>
-<!--        <input matInput type="text" placeholder="Duty from:" [(ngModel)]="request.dutyFrom" [ngModelOptions]="{standalone: true}">-->
-        <input matInput type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" [(ngModel)]="request.dutyFrom" [ngModelOptions]="{standalone: true}">
+        <input matInput type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" [(ngModel)]="request.dutyFrom" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Duty to:</mat-label>
-<!--        <input matInput type="text" placeholder="Duty to:" [(ngModel)]="request.dutyTo" [ngModelOptions]="{standalone: true}">-->
-        <input matInput type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" [(ngModel)]="request.dutyTo" [ngModelOptions]="{standalone: true}">
+        <input matInput type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" [(ngModel)]="request.dutyTo" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>Doctor id:</mat-label>
-        <input matInput type="number" placeholder="Doctor id:" [(ngModel)]="request.doctorId" [ngModelOptions]="{standalone: true}">
+        <input matInput type="number" placeholder="Doctor id:" [(ngModel)]="request.doctorId" [ngModelOptions]="{standalone: true}" required>
       </mat-form-field>
 
       <div class="form-button-row">
