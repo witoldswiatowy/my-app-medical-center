@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -28,7 +29,7 @@ public class DutyController {
     }
 
     @PostMapping
-    public DutyDto addDuty(@RequestBody AddDutyRequest request) {
+    public DutyDto addDuty(@Valid @RequestBody AddDutyRequest request) {
         log.info("addDuty called");
         return dutyService.addDuty(request);
     }
