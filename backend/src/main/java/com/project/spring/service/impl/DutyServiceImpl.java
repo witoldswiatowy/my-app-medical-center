@@ -60,6 +60,17 @@ public class DutyServiceImpl implements DutyService {
         return DutyMapper.toDutyDto(savedDutyEntity);
     }
 
+    @Override
+    public void deleteDuty(Long dutyId) {
+        if (dutyRepository.findById(dutyId).isPresent()) {
+            log.info("Deleting duty with id {}", dutyId);
+            dutyRepository.deleteById(dutyId);
+            return;
+        }
+        log.error("Duty does not exist in DB, delete is not permitted!");
+        throw new EntityNotFoundException("Duty with id: " + dutyId + " does not exist in DB, delete is not permitted!");
+    }
+
 
     private void validateCorrectDtoForCrud(AddDutyRequest request) {
         if (request == null) {

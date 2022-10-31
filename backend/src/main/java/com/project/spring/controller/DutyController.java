@@ -33,4 +33,11 @@ public class DutyController {
         log.info("addDuty called");
         return dutyService.addDuty(request);
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteDutyById(@PathVariable Long id){
+        log.info("deleteDutyById called");
+        dutyService.deleteDuty(id);
+    }
 }

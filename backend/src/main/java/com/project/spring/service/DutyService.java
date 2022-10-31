@@ -3,6 +3,7 @@ package com.project.spring.service;
 import com.project.spring.model.dto.AddDutyRequest;
 import com.project.spring.model.dto.DutyDto;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Set;
 
@@ -23,4 +24,12 @@ public interface DutyService {
      * @return created {@link DutyDto}
      */
     DutyDto addDuty(AddDutyRequest request);
+
+    /**
+     * Delete the passed duty.
+     * If the duty does not exist in DB, then the implementation might throw an {@link EntityNotFoundException}.
+     *
+     * @param dutyId - id of duty to delete
+     */
+    void deleteDuty(Long dutyId);
 }
