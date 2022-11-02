@@ -9,5 +9,10 @@ import java.util.List;
 public interface ApplicationUserService {
 
     ApplicationUserDto addUser(CreateUserRequest request);
+
     List<ApplicationUserDto> listUsers();
+
+    ApplicationUserDto getUserDetails(Long id);
+
+    void deleteUserById(Long id);
 }

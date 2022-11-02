@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ApplicationUserDto {
     private Long id;
-//    private LocalDateTime createDate;
-//    private LocalDateTime updateDate;
+    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
 //    private Long version;
     private String login;
     private String name;

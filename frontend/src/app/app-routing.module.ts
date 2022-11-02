@@ -13,6 +13,7 @@ import {DoctorsComponent} from "./doctors/doctors.component";
 import {DoctorFormComponent} from "./doctor-form/doctor-form.component";
 import {ContactComponent} from "./contact/contact.component";
 import {DutiesFormComponent} from "./duties-form/duties-form.component";
+import {UserDetailsComponent} from "./user-details/user-details.component";
 
 const routes: Routes = [
   {path: "", redirectTo: "home", pathMatch: "full"},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: "login", component: LoginFormComponent},
   {path: "register", component: RegistrationFormComponent},
   {path: "users", component: UserListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
+  {path: "user/details/:id", component: UserDetailsComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "doctors", component: DoctorsComponent},
   {path: "add_doctor", component: DoctorFormComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},

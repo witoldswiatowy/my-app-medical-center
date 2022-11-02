@@ -22,7 +22,7 @@ public class DoctorController {
     @GetMapping
 //    @ResponseStatus(HttpStatus.OK)
     public List<DoctorDto> getListOfDoctor() {
-        log.info("Logger when execute methode from DoctorController");
+        log.info("getListOfDoctor called from DoctorController");
         return doctorService.getAllDoctors();
     }
 
