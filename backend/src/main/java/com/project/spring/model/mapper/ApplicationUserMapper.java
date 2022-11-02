@@ -16,8 +16,8 @@ public interface ApplicationUserMapper {
             @Mapping(target = "password", source = "pass"),
             @Mapping(target = "firstName", source = "name"),
             @Mapping(target = "lastName", source = "surname"),
-//            @Mapping(target = "phoneNumber", source = "phoneNumber"),
-//            @Mapping(target = "email", source = "email"),
+            @Mapping(target = "phoneNumber", source = "phoneNumber"),
+            @Mapping(target = "email", source = "email"),
             @Mapping(target = "enabled", constant = "true"),
             @Mapping(target = "accountNonExpired", constant = "true"),
             @Mapping(target = "accountNonLocked", constant = "true"),
@@ -30,8 +30,8 @@ public interface ApplicationUserMapper {
             @Mapping(source = "username", target = "login"),
             @Mapping(source = "firstName", target = "name"),
             @Mapping(source = "lastName", target = "surname"),
-//            @Mapping(source = "phoneNumber", target = "phoneNumber"),
-//            @Mapping(source = "email", target = "email"),
+            @Mapping(source = "phoneNumber", target = "phoneNumber"),
+            @Mapping(source = "email", target = "email"),
             @Mapping(expression = "java(applicationUser.getRoles().stream().map(role -> role.getName()).collect(Collectors.toList()))", target = "roles")
     })
     ApplicationUserDto mapApplicationUserToDto(ApplicationUser applicationUser);

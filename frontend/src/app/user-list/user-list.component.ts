@@ -16,7 +16,8 @@ export class UserListComponent implements OnInit {
     'email',
     'birthDate',
     'sex',
-    'roles'
+    'roles',
+    'delete-button'
   ]
 
 

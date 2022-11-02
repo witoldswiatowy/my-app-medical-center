@@ -53,4 +53,15 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
                 .map(applicationUserMapper::mapApplicationUserToDto)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void deleteUserById(Long userId) {
+        if(applicationUserRepository.findById(userId).isPresent()){
+            log.info("Deleting user with id {}", userId);
+            applicationUserRepository.deleteById(userId);
+            return;
+        }
+        log.error("User does not exist in DB, delete is not permitted!");
+        throw new EntityNotFoundException("User with id: " + userId + " does not exist in DB, delete is not permitted!");
+    }
 }

@@ -10,4 +10,6 @@ public interface ApplicationUserService {
 
     ApplicationUserDto addUser(CreateUserRequest request);
     List<ApplicationUserDto> listUsers();
+
+    void deleteUserById(Long id);
 }

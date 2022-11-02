@@ -23,14 +23,24 @@ public class ApplicationUserController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN') && hasRole('MODERATOR')")
     public List<ApplicationUserDto> getListOfUsers(){
-        return applicationUserService.listUsers();
+        log.info("getListOfUsers called from ApplicationUserController");
+        List<ApplicationUserDto> applicationUserDtos = applicationUserService.listUsers();
+        return applicationUserDtos;
     }
 
     @PostMapping()
     @CrossOrigin()
     @ResponseStatus(HttpStatus.CREATED)
     public ApplicationUserDto postNewUser(@RequestBody CreateUserRequest request){
+        log.info("postNewUser called from ApplicationUserController");
         return applicationUserService.addUser(request);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deleteUserById(@PathVariable Long id){
+        log.info("deleteUserById called");
+        applicationUserService.deleteUserById(id);
     }
 }
 
