@@ -55,6 +55,14 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
     }
 
     @Override
+    public ApplicationUserDto getUserDetails(Long userId) {
+        ApplicationUser user = applicationUserRepository.findById(userId)
+                .orElseThrow(EntityNotFoundException::new);
+
+        return applicationUserMapper.mapApplicationUserToDto(user);
+    }
+
+    @Override
     public void deleteUserById(Long userId) {
         if(applicationUserRepository.findById(userId).isPresent()){
             log.info("Deleting user with id {}", userId);

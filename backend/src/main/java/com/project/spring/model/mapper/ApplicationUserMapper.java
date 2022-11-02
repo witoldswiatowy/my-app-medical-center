@@ -27,6 +27,8 @@ public interface ApplicationUserMapper {
 
     @Mappings(value = {
             @Mapping(source = "id", target="id"),
+            @Mapping(source = "createDate", target="createDate"),
+            @Mapping(source = "updateDate", target="updateDate"),
             @Mapping(source = "username", target = "login"),
             @Mapping(source = "firstName", target = "name"),
             @Mapping(source = "lastName", target = "surname"),
