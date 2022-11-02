@@ -1,0 +1,17 @@
+mat-card{
+width: 300px;
+}
+
+mat-card-title{
+margin: 20px;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+h2{
+  font-weight: bold;
+  margin: 0;
+}

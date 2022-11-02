@@ -12,11 +12,10 @@ export class UserListComponent implements OnInit {
     'login',
     'name',
     'surname',
-    'phoneNumber',
     'email',
-    'birthDate',
-    'sex',
     'roles',
+    'details-button',
+    'edit-button',
     'delete-button'
   ]
 
