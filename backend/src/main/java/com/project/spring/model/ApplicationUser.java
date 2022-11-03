@@ -52,6 +52,9 @@ public class ApplicationUser implements UserDetails {
 //    @OneToMany(mappedBy = "applicationUser", cascade = CascadeType.ALL)
 //    private Set<VisitEntity> visits;
 
+    @OneToOne
+    private DoctorEntity doctorEntity;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;

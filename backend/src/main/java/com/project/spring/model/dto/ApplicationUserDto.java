@@ -24,6 +24,7 @@ public class ApplicationUserDto {
     private String surname;
     private String phoneNumber;
     private String email;
+    private Long doctorId;
     private LocalDate birthDate;
     private Sex sex;
     private List<String> roles;

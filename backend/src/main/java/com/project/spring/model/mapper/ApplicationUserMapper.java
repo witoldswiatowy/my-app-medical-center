@@ -1,5 +1,6 @@
 package com.project.spring.model.mapper;
 
+import com.project.spring.model.DoctorEntity;
 import com.project.spring.model.dto.ApplicationUserDto;
 import com.project.spring.model.dto.CreateUserRequest;
 import com.project.spring.model.ApplicationUser;
@@ -34,6 +35,7 @@ public interface ApplicationUserMapper {
             @Mapping(source = "lastName", target = "surname"),
             @Mapping(source = "phoneNumber", target = "phoneNumber"),
             @Mapping(source = "email", target = "email"),
+            @Mapping(source = "doctorEntity.id", target = "doctorId"),
             @Mapping(expression = "java(applicationUser.getRoles().stream().map(role -> role.getName()).collect(Collectors.toList()))", target = "roles")
     })
     ApplicationUserDto mapApplicationUserToDto(ApplicationUser applicationUser);

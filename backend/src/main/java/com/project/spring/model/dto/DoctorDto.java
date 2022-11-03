@@ -1,5 +1,6 @@
 package com.project.spring.model.dto;
 
+import com.project.spring.model.ApplicationUser;
 import com.project.spring.model.DutyEntity;
 import com.project.spring.model.VisitEntity;
 import com.project.spring.model.enums.MedicalSpecialization;
@@ -26,6 +27,7 @@ public class DoctorDto {
     private String email;
     private String description;
     private String imgUrl;
+    private ApplicationUserDto user;
     private MedicalSpecialization specialization;
     private BigDecimal hourlyRate;
     private MedicalClinicDto clinic;
