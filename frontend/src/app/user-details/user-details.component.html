@@ -7,6 +7,11 @@
       <div>{{userDetails.id}}</div>
     </div>
 
+    <div *ngIf="userDetails.doctorId != null" class="user-doctor-id">
+      <h2>Doctor identifier: </h2>
+      <div>{{userDetails.doctorId}}</div>
+    </div>
+
     <div class="user-name">
       <h2>First name: </h2>
       <div>{{userDetails.name}}</div>

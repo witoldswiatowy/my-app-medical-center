@@ -35,4 +35,5 @@ export type UserDetails = {
   roles: string[],
   createDate: string,
   updateDate: string
+  doctorId: number
 }

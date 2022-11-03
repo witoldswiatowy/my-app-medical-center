@@ -97,7 +97,8 @@ export class UserServiceService {
       sex: Sex.MALE,
       roles: [],
       createDate: "",
-      updateDate: ""
+      updateDate: "",
+      doctorId: 0
     }
   }
 
