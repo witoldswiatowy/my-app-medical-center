@@ -1,16 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {CreateUserRequest, UserDetails} from '../model/user';
+import {CreateUserRequest, Sex, UpdateUserRequest, UserDetails} from '../../model/user';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
-import {BACKEND_BASE_URL} from "../model/constants";
-
-export enum Sex {
-FEMALE = "FEMALE",
-MALE = "MALE",
-OTHER = "OTHER"
-}
+import {BACKEND_BASE_URL} from "../../model/constants";
 
 export type User = {
   id: number,
@@ -102,6 +96,19 @@ export class UserServiceService {
     }
   }
 
+  public getDefaultUpdateUserRequest(): UpdateUserRequest {
+    return {
+      name: "",
+      surname: "",
+      phoneNumber: "",
+      email: "",
+      birthDate: "",
+      sex: Sex.MALE,
+      roles: [],
+      doctorId: 0
+    }
+  }
+
   public getUserDetails(userId: number): Observable<UserDetails> {
     return this.httpClient.get<UserDetails>(BACKEND_BASE_URL + "user/" + userId);
   }
@@ -110,7 +117,15 @@ export class UserServiceService {
     return this.httpClient.post("http://localhost:8080/api/user", createUserRequest);
   }
 
+  public updateUser(updateUserRequest: UpdateUserRequest) : Observable<Object>{
+    return this.httpClient.put("http://localhost:8080/api/user", updateUserRequest);
+  }
+
   userDetails(id: number): void {
     this.router.navigate(['/user/details/' + id])
+  }
+
+  editUser(id: number): void {
+    this.router.navigate(['/user/editor/' + id])
   }
 }

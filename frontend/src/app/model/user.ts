@@ -1,4 +1,8 @@
-import {Sex} from "../user-service/user-service.service";
+export enum Sex {
+  FEMALE = "FEMALE",
+  MALE = "MALE",
+  OTHER = "OTHER"
+}
 
 export type CreateUserRequest = {
   login: string,
@@ -34,6 +38,18 @@ export type UserDetails = {
   sex: Sex,
   roles: string[],
   createDate: string,
-  updateDate: string
+  updateDate: string,
   doctorId: number
+}
+
+export type UpdateUserRequest = {
+  name: string,
+  surname: string,
+  phoneNumber: string,
+  email: string,
+  birthDate: string,
+  sex: Sex,
+  roles: string[],
+  doctorId: number
+
 }

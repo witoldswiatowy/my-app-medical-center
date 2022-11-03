@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title>Update Form</mat-card-title>
+  <mat-card-subtitle>Updating account</mat-card-subtitle>
+  <mat-card-content>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>First name:</mat-label>
+      <input type="text" matInput placeholder="First name:" [(ngModel)]="updateUserRequest.name">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Last name:</mat-label>
+      <input type="text" matInput placeholder="Last name:" [(ngModel)]="updateUserRequest.surname">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Phone number:</mat-label>
+      <input type="text" matInput placeholder="Phone number:" [(ngModel)]="updateUserRequest.phoneNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Email:</mat-label>
+      <input type="text" matInput placeholder="Email:" [(ngModel)]="updateUserRequest.email">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Birth date:</mat-label>
+      <input type="date" matInput placeholder="yyyy-MM-dd" [(ngModel)]="updateUserRequest.birthDate">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Sex:</mat-label>
+      <mat-select [(ngModel)]="updateUserRequest.sex" placeholder="Sex:" [ngModelOptions]="{standalone: true}" >
+        <mat-option  *ngFor="let sex of sexs" [value]="sex">
+          {{Sex[sex]}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Doctor id:</mat-label>
+      <input type="number" matInput placeholder="Doctor id:" [(ngModel)]="updateUserRequest.doctorId">
+    </mat-form-field>
+
+    <div class="form-button-row">
+      <button class="submit-button" type="button" mat-button mat-raised-button (click)="updateUser()">
+        Submit
+      </button>
+      <button class="clear-button" type="button" mat-button mat-raised-button color="warn" (click)="clearForm()">
+        Clear
+      </button>
+    </div>
+
+    <mat-card-footer>
+      <mat-progress-bar *ngIf="sendingUser" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card-content>
+</mat-card>
