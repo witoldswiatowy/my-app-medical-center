@@ -2,6 +2,7 @@ package com.project.spring.controller;
 
 import com.project.spring.model.dto.ApplicationUserDto;
 import com.project.spring.model.dto.CreateUserRequest;
+import com.project.spring.model.dto.UpdateUserRequest;
 import com.project.spring.service.ApplicationUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -48,8 +49,18 @@ public class ApplicationUserController {
     @ResponseStatus(HttpStatus.OK)
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteUserById(@PathVariable Long id) {
-        log.info("deleteUserById called");
+        log.info("deleteUserById called from ApplicationUserController");
         applicationUserService.deleteUserById(id);
+    }
+
+//    @PutMapping("/{identifier}")
+    @PutMapping()
+    public ApplicationUserDto updateUser(
+//            @PathVariable(name = "identifier") Long id,
+            @RequestBody UpdateUserRequest request){
+        log.info("updateUser called from ApplicationUserController");
+//        return applicationUserService.updateUser(id, request);
+        return applicationUserService.updateUser(request.getId(), request);
     }
 }
 
