@@ -22,7 +22,7 @@ export class RegistrationFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router) {
 
-    this.createUserRequest = this.userService.getDefautUserRequest()
+    this.createUserRequest = this.userService.getDefaultUserRequest()
   }
 
   ngOnInit(): void {
@@ -61,6 +61,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   clearForm(): void {
-    this.createUserRequest = this.userService.getDefautUserRequest()
+    this.createUserRequest = this.userService.getDefaultUserRequest()
   }
 }

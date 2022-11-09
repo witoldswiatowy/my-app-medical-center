@@ -1,6 +1,6 @@
 import {Doctor} from "./doctor";
 import {Duty} from "./duty";
-import {User} from "../user/user-service/user-service.service";
+import {User} from "./user";
 
 export enum Status {
   FINISHED= "FINISHED",

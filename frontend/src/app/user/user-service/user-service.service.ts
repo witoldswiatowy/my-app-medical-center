@@ -1,25 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {CreateUserRequest, Sex, UpdateUserRequest, UserDetails} from '../../model/user';
+import {CreateUserRequest, Sex, UpdateUserRequest, User, UserDetails} from '../../model/user';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
 import {BACKEND_BASE_URL} from "../../model/constants";
-
-export type User = {
-  id: number,
-  login: string,
-
-  name: string,
-  surname: string,
-  phoneNumber: string,
-  email: string,
-  birthDate: string,
-  sex: Sex,
-  roles: string[],
-  createDate: string,
-  updateDate: string
-}
 
 @Injectable({
   providedIn: 'root'
@@ -69,7 +54,7 @@ export class UserServiceService {
       })
   }
 
-  public getDefautUserRequest(): CreateUserRequest {
+  public getDefaultUserRequest(): CreateUserRequest {
     return {
       login: "",
       pass: "",
