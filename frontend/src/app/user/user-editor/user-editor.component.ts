@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {UserServiceService} from "../user-service/user-service.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {Router} from "@angular/router";
-import {Sex, UpdateUserRequest} from "../../model/user";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Sex, UpdateUserRequest, UserDetails} from "../../model/user";
 
 @Component({
   selector: 'app-user-editor',
@@ -15,13 +15,32 @@ export class UserEditorComponent implements OnInit {
   updateUserRequest: UpdateUserRequest;
   sendingUser: boolean = false;
   notification: string | any = null;
+  userDetails: UserDetails;
 
   constructor(
     private renderer: Renderer2,
     private userService: UserServiceService,
     private snackBar: MatSnackBar,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
     this.updateUserRequest = this.userService.getDefaultUpdateUserRequest()
+    this.userDetails = this.userService.getDefaultUserDetails()
+    this.route.params.subscribe((params) => {
+      console.log(params);
+      const UserId = params['id']
+
+      this.userService.getUserDetails(UserId)
+        .subscribe({
+          next: (user) => {
+            console.log(user);
+            this.userDetails = user;
+          },
+          error: (error) => {
+            console.log(error);
+          }
+        })
+    })
   }
 
   Sex = Sex;
@@ -37,6 +56,12 @@ export class UserEditorComponent implements OnInit {
 
   updateUser(): void {
     this.sendingUser = true;
+    console.log("TEST updateUSer przed przypisanie:")
+    console.log(this.updateUserRequest)
+    console.log(this.userDetails)
+    this.updateUserRequest.id = this.userDetails.id;
+    console.log("TEST updateUSer po przypisaniu id do request: ")
+    console.log(this.updateUserRequest)
     this.userService.updateUser(this.updateUserRequest)
       .subscribe({
           next: (value) => {
@@ -46,6 +71,8 @@ export class UserEditorComponent implements OnInit {
               horizontalPosition: 'start',
               duration: 5000
             })
+    console.log("TEST updateUSer na koniec metody")
+    console.log(this.updateUserRequest)
 
             // po dodaniu obiektu przekieruj na listę
             this.router.navigate(['/users'])

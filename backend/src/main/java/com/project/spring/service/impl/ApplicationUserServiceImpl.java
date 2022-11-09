@@ -93,14 +93,14 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
 
         ApplicationUser applicationUserUpdated = applicationUserRepository.findById(id)
                 .map(user -> {
-                    user.setDoctorEntity(updateDoctorId != null ?
+                    user.setDoctorEntity(updateDoctorId > 0 ?
                             doctorRepository.findById(updateDoctorId)
                                     .orElseThrow(EntityNotFoundException::new)
                             : user.getDoctorEntity());
-                    user.setFirstName(updateName != null ? updateName : user.getFirstName());
-                    user.setLastName(updateSurname != null ? updateSurname : user.getLastName());
-                    user.setPhoneNumber(updatePhoneNumber != null ? updatePhoneNumber : user.getPhoneNumber());
-                    user.setEmail(updateEmail != null ? updateEmail : user.getEmail());
+                    user.setFirstName(!updateName.isBlank() ? updateName : user.getFirstName());
+                    user.setLastName(!updateSurname.isBlank() ? updateSurname : user.getLastName());
+                    user.setPhoneNumber(!updatePhoneNumber.isBlank() ? updatePhoneNumber : user.getPhoneNumber());
+                    user.setEmail(!updateEmail.isBlank() ? updateEmail : user.getEmail());
                     user.setBirthDate(updateBirthDate != null ? updateBirthDate : user.getBirthDate());
                     user.setSex(updateSex != null ? updateSex : user.getSex());
                     user.getRoles().addAll(updateRoles);

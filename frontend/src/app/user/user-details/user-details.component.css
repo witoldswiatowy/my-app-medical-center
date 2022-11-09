@@ -1,5 +1,10 @@
-mat-card{
+.user-details{
+  display: flex;
+}
+
+mat-card, app-user-editor{
 width: 300px;
+  margin: 10px;
 }
 
 mat-card-title{

@@ -98,6 +98,7 @@ export class UserServiceService {
 
   public getDefaultUpdateUserRequest(): UpdateUserRequest {
     return {
+      id: 0,
       name: "",
       surname: "",
       phoneNumber: "",

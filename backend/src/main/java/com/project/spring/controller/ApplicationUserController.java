@@ -60,7 +60,8 @@ public class ApplicationUserController {
             @RequestBody UpdateUserRequest request){
         log.info("updateUser called from ApplicationUserController");
 //        return applicationUserService.updateUser(id, request);
-        return applicationUserService.updateUser(request.getId(), request);
+        ApplicationUserDto applicationUserDto = applicationUserService.updateUser(request.getId(), request);
+        return applicationUserDto;
     }
 }
 

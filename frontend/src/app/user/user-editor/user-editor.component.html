@@ -4,32 +4,32 @@
   <mat-card-content>
 
     <mat-form-field appearance="legacy">
-      <mat-label>First name:</mat-label>
+      <mat-label>{{userDetails.name}}</mat-label>
       <input type="text" matInput placeholder="First name:" [(ngModel)]="updateUserRequest.name">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Last name:</mat-label>
+      <mat-label>{{userDetails.surname}}</mat-label>
       <input type="text" matInput placeholder="Last name:" [(ngModel)]="updateUserRequest.surname">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Phone number:</mat-label>
+      <mat-label>{{userDetails.phoneNumber}}</mat-label>
       <input type="text" matInput placeholder="Phone number:" [(ngModel)]="updateUserRequest.phoneNumber">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Email:</mat-label>
+      <mat-label>{{userDetails.email}}</mat-label>
       <input type="text" matInput placeholder="Email:" [(ngModel)]="updateUserRequest.email">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Birth date:</mat-label>
+      <mat-label>{{userDetails.birthDate}}</mat-label>
       <input type="date" matInput placeholder="yyyy-MM-dd" [(ngModel)]="updateUserRequest.birthDate">
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Sex:</mat-label>
+      <mat-label>{{userDetails.sex}}</mat-label>
       <mat-select [(ngModel)]="updateUserRequest.sex" placeholder="Sex:" [ngModelOptions]="{standalone: true}" >
         <mat-option  *ngFor="let sex of sexs" [value]="sex">
           {{Sex[sex]}}
@@ -38,8 +38,13 @@
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Doctor id:</mat-label>
+      <mat-label>Doctor id: {{userDetails.doctorId}}</mat-label>
       <input type="number" matInput placeholder="Doctor id:" [(ngModel)]="updateUserRequest.doctorId">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>{{userDetails.roles}}</mat-label>
+      <input type="text" matInput placeholder="Roles:" [(ngModel)]="updateUserRequest.roles">
     </mat-form-field>
 
     <div class="form-button-row">

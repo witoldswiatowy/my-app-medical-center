@@ -43,6 +43,7 @@ export type UserDetails = {
 }
 
 export type UpdateUserRequest = {
+  id: number,
   name: string,
   surname: string,
   phoneNumber: string,
