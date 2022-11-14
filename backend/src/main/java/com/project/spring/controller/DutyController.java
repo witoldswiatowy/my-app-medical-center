@@ -22,13 +22,14 @@ public class DutyController {
     private final PrincipalComponent principalComponent;
 
     @GetMapping()
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN') || hasRole('DOCTOR')")
     public List<DutyDto> getAllDuties() {
         log.info("getAllDuties called");
         return dutyService.getDutiesList();
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN') || hasRole('DOCTOR')")
     public DutyDto addDuty(@Valid @RequestBody AddDutyRequest request) {
         log.info("addDuty called");
         return dutyService.addDuty(request);

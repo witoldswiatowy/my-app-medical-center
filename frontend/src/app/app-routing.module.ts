@@ -28,7 +28,7 @@ const routes: Routes = [
   {path: "doctors", component: DoctorsComponent},
   {path: "add_doctor", component: DoctorFormComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
-  {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
+  {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, ]},
   {path: "contact", component: ContactComponent},
   {path: "add_duty", component: DutiesFormComponent},
 ];
