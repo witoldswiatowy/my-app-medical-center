@@ -5,10 +5,10 @@ import com.project.spring.model.dto.DoctorDto;
 import com.project.spring.service.DoctorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
@@ -22,13 +22,13 @@ public class DoctorController {
     @GetMapping
 //    @ResponseStatus(HttpStatus.OK)
     public List<DoctorDto> getListOfDoctor() {
-        log.info("Logger when execute methode from DoctorController");
+        log.info("getListOfDoctor called from DoctorController");
         return doctorService.getAllDoctors();
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public DoctorDto addDoctor(@RequestBody AddDoctorRequest request) {
+    public DoctorDto addDoctor(@Valid  @RequestBody AddDoctorRequest request) {
         log.info("addDoctor called");
         return doctorService.hireDoctor(request);
     }

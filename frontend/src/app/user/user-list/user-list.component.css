@@ -3,17 +3,16 @@
   border: 1px solid white;
   border-radius: 2px;
 }
+ng-container{
+  margin: auto;
+}
 
 .mat-column-identifier{
-  width: 48px;
+  width: 24px;
 }
 
-.mat-column-price{
+.mat-column-sex{
   width: 64px;
-}
-
-.mat-column-quantity{
-  width: 48px;
 }
 
 mat-card-footer {

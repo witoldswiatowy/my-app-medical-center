@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { CreateUserRequest } from '../model/user';
+import { CreateUserRequest } from '../../model/user';
 import { UserServiceService } from '../user-service/user-service.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class RegistrationFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router) {
 
-    this.createUserRequest = this.userService.getDefautUserRequest()
+    this.createUserRequest = this.userService.getDefaultUserRequest()
   }
 
   ngOnInit(): void {
@@ -61,6 +61,6 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   clearForm(): void {
-    this.createUserRequest = this.userService.getDefautUserRequest()
+    this.createUserRequest = this.userService.getDefaultUserRequest()
   }
 }

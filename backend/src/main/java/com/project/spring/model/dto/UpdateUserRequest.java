@@ -1,5 +1,6 @@
 package com.project.spring.model.dto;
 
+import com.project.spring.model.ApplicationUserRole;
 import com.project.spring.model.enums.Sex;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,25 +8,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ApplicationUserDto {
+public class UpdateUserRequest {
     private Long id;
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
-//    private Long version;
-    private String login;
+
+    private Long doctorId;
     private String name;
     private String surname;
     private String phoneNumber;
     private String email;
-    private Long doctorId;
     private LocalDate birthDate;
     private Sex sex;
-    private List<String> roles;
+    private Set<ApplicationUserRole> roles;
 }

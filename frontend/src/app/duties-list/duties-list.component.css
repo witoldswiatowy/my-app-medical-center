@@ -1,6 +1,14 @@
 .duties-list-content {
 }
 
+.duties-list{
+  display: flex;
+  justify-content: space-between;
+}
+mat-icon{
+  padding: 25%;
+}
+
 .duties-table {
   width: 100%;
   border-radius: 2px;
@@ -26,5 +34,4 @@
   width: 96px;
   max-width: 96px;
 }
-
 

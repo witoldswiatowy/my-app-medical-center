@@ -21,10 +21,10 @@ public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Column(name = "create_date")
-//    private LocalDateTime createDate;
-//    @Column(name = "update_date")
-//    private LocalDateTime updateDate;
+    @Column(name = "create_date")
+    private LocalDateTime createDate;
+    @Column(name = "update_date")
+    private LocalDateTime updateDate;
 //    @Version
 //    @Column(name = "version")
 //    private Long version;
@@ -35,14 +35,14 @@ public class ApplicationUser implements UserDetails {
 
     private String firstName;
     private String lastName;
-//    private String phoneNumber;
-//    private String email;
-//
-//    @Enumerated(EnumType.STRING)
-//    private Sex sex;
-//
-//    @Column(name = "birth_date")
-//    private LocalDate birthDate;
+    private String phoneNumber;
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     private boolean accountNonExpired;
     private boolean accountNonLocked;
@@ -51,6 +51,9 @@ public class ApplicationUser implements UserDetails {
 
 //    @OneToMany(mappedBy = "applicationUser", cascade = CascadeType.ALL)
 //    private Set<VisitEntity> visits;
+
+    @OneToOne
+    private DoctorEntity doctorEntity;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

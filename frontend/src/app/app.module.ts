@@ -25,9 +25,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserServiceService } from './user-service/user-service.service';
+import { RegistrationFormComponent } from './user/registration-form/registration-form.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserServiceService } from './user/user-service/user-service.service';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { TestComponent } from './test/test.component';
 import { AuthenticationInterceptor } from './authentication-service/authentication.interceptor';
@@ -44,6 +44,9 @@ import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { ContactComponent } from './contact/contact.component';
 import {MatListModule} from "@angular/material/list";
 import { VisitFormComponent } from './visit-form/visit-form.component';
+import {DutiesFormComponent} from "./duties-form/duties-form.component";
+import { UserDetailsComponent } from './user/user-details/user-details.component';
+import { UserEditorComponent } from './user/user-editor/user-editor.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { VisitFormComponent } from './visit-form/visit-form.component';
     DoctorFormComponent,
     ContactComponent,
     VisitFormComponent,
+    DutiesFormComponent,
+    UserDetailsComponent,
+    UserEditorComponent
   ],
     imports: [
         BrowserModule,

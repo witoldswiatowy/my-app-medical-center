@@ -1,0 +1,22 @@
+.user-details{
+  display: flex;
+}
+
+mat-card, app-user-editor{
+width: 300px;
+  margin: 10px;
+}
+
+mat-card-title{
+margin: 20px;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+h2{
+  font-weight: bold;
+  margin: 0;
+}

@@ -16,6 +16,7 @@ application:
     roles:
       - ROLE_ADMIN
       - ROLE_USER
+      - ROLE_DOCTOR
       - ROLE_MODERATOR
     users:
       - username: admin
@@ -24,3 +25,6 @@ application:
       - username: user
         password: user
         roles: ROLE_USER
+      - username: doctor
+        password: doctor
+        roles: ROLE_USER, ROLE_DOCTOR

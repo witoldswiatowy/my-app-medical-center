@@ -29,11 +29,9 @@
 .home-main{
   display: flex;
   justify-content: center;
-  padding: 24px 0 0 0;
+  padding: 24px 0 24px 0;
 }
 .home-main-welcome{
-  display: flex;
-  justify-content: left;
   padding: 0;
   width: 800px;
   height: 400px;
@@ -42,4 +40,11 @@
 .home-main-welcome mat-card-content{
   padding: 25px;
   font-size: xxx-large;
+}
+
+.home-description{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 800px;
 }

@@ -32,6 +32,9 @@ public class DoctorEntity extends PersonEntity {
     @Column(name = "img_url")
     private String imgUrl;
 
+    @OneToOne
+    private ApplicationUser user;
+
     @ManyToOne(cascade = CascadeType.PERSIST)
     private MedicalClinicEntity clinic;
 
