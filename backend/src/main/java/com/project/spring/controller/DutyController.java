@@ -7,6 +7,7 @@ import com.project.spring.service.DutyService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,11 +29,14 @@ public class DutyController {
         return dutyService.getDutiesList();
     }
 
-    @PostMapping
+    @PostMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN') || hasRole('DOCTOR')")
-    public DutyDto addDuty(@Valid @RequestBody AddDutyRequest request) {
+    public DutyDto addDuty(
+            @Valid @RequestBody AddDutyRequest request,
+            @PathVariable(name = "id") Long userId,
+            UsernamePasswordAuthenticationToken principal) {
         log.info("addDuty called");
-        return dutyService.addDuty(request);
+        return dutyService.addDuty(principalComponent.getUser(principal, userId).getId(), request);
     }
 
     @DeleteMapping("/{id}")

@@ -3,6 +3,7 @@ import {AddDutyRequest, Duty} from "../model/duty";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import {AuthenticationServiceService} from "../authentication-service/authentication-service.service";
 
 @Component({
   selector: 'app-duties-form',
@@ -18,6 +19,7 @@ export class DutiesFormComponent implements OnInit {
   }
 
   constructor(
+    public authService : AuthenticationServiceService,
     private httpClient: HttpClient,
     private snackBar: MatSnackBar,
     private router: Router
@@ -28,7 +30,7 @@ export class DutiesFormComponent implements OnInit {
   }
 
   sendAddDutyRequest(): void {
-    this.httpClient.post<Duty>("http://localhost:8080/api/duty", this.request)
+    this.httpClient.post<Duty>("http://localhost:8080/api/duty/" + this.authService.loggedInUser?.id!, this.request)
       .subscribe({
         next: () => {
           this.snackBar.open('Add duty successfully!', undefined, {

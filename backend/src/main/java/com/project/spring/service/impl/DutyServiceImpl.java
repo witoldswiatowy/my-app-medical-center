@@ -1,6 +1,7 @@
 package com.project.spring.service.impl;
 
 import com.project.spring.exception.ParamsIsIncorrectException;
+import com.project.spring.model.ApplicationUser;
 import com.project.spring.model.DoctorEntity;
 import com.project.spring.model.DutyEntity;
 import com.project.spring.model.dto.AddDutyRequest;
@@ -47,10 +48,21 @@ public class DutyServiceImpl implements DutyService {
      * {@inheritDoc}
      */
     @Override
-    public DutyDto addDuty(AddDutyRequest request) {
-        validateCorrectDtoForCrud(request);
-        DoctorEntity doctorEntity = doctorRepository.findById(request.getDoctorId())
-                .orElseThrow(() -> new EntityNotFoundException("Doctor with id: " + request.getDoctorId() + " does not exist in DB, delete is not permitted!"));
+    public DutyDto addDuty(Long userId, AddDutyRequest request) {
+        DoctorEntity doctorEntity;
+        if (request.getDoctorId() > 0) {
+            doctorEntity = doctorRepository.findById(request.getDoctorId())
+                    .orElseThrow(() -> new EntityNotFoundException("Doctor with id: " + request.getDoctorId() + " does not exist in DB, delete is not permitted!"));
+            validateCorrectDtoForCrud(request);
+        } else {
+            ApplicationUser owner = applicationUserRepository.findById(userId)
+                    .orElseThrow(EntityNotFoundException::new);
+            Long ownerDoctorId = owner.getDoctorEntity().getId();
+            doctorEntity = doctorRepository.findById(ownerDoctorId)
+                    .orElseThrow(() -> new EntityNotFoundException("Doctor with id: " + ownerDoctorId + " does not exist in DB, delete is not permitted!"));
+            request.setDoctorId(ownerDoctorId);
+            validateCorrectDtoForCrud(request);
+        }
 
         DutyEntity dutyEntity = DutyMapper.requestToDutyEntity(request);
         dutyEntity.setDoctor(doctorEntity);
@@ -78,11 +90,13 @@ public class DutyServiceImpl implements DutyService {
             throw new IllegalArgumentException();
         }
         validateForDateTime(request);
+        validateForDutyAtSameDay(request);
+
+
         if (request.getDoctorId() == null) {
             log.error("Duty must have a doctor id!");
             throw new IllegalArgumentException();
         } else {
-            validateForDutyAtSameDay(request);
         }
     }
 

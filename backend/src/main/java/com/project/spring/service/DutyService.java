@@ -23,7 +23,7 @@ public interface DutyService {
      * @param request - params of duty to create
      * @return created {@link DutyDto}
      */
-    DutyDto addDuty(AddDutyRequest request);
+    DutyDto addDuty(Long userId, AddDutyRequest request);
 
     /**
      * Delete the passed duty.

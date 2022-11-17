@@ -19,6 +19,5 @@ public class AddDutyRequest {
     @Future
     private LocalDateTime dutyTo;
     @NotNull
-    @Positive
     private Long doctorId;
 }
