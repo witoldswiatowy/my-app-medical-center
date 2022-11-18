@@ -1,12 +1,53 @@
 <mat-card>
+  <mat-card-title>
+    What specialization do you need?
+  </mat-card-title>
+  <form>
+    <mat-form-field>
+      <mat-select maNativeControl [(ngModel)]="selected" placeholder="Specialization:">
+        <mat-option *ngFor="let specialization of specializations" [value]="specialization">
+          {{MedicalSpecialization[specialization]}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>You selected: {{selected}}</p>
+  </form>
+  <p>
+    1. Po wybraniu specjalizacji, dać dwie opcje do wyboru.
+  </p>
+  <p>
+    2. Wybór lekarza z danej specjalizacji, albo bez wyboru i najbliższy termin do specjalisty
+  </p>
+  <p>
+    3. Jeśli pierwszy wybór to wyświetlić liste dostępnych specjalistów i może w nawiasie jeden najbliższy termin
+  <p>
+    I po wybraniu lekarza, wyświetlić jego wolne terminy
+  </p>
+  <p>
+    Przy drugiej opcji wyświetlić 5, 10, 15 wolnych terminów (z paginacją)
+  </p>
+  <p>
+    4. Dać opcjonalnie możliwość wyboru zakresu dat do wyświetlenia wolnych terminów dla obu opcji
+  </p>
+  <p>
+    5. Po wybraniu terminu można zatwierdzić wybór i wizyta zostanie zapisana, a użytkownik dostanie maila z
+    potwierdzeniem
+  </p>
+  <p>
+    6. Co powoduje że można dalej stworzyć hiostorie wizyt i zaplanowane wizyty
+  </p>
+</mat-card>
+
+<mat-card>
   <mat-card-title>Formula for visit</mat-card-title>
   <mat-card-subtitle>Booking new visit
-  <p>
-    DO POPRAWY
-  </p>
-  <p>
-  TODO: z frontendu wysyła się wybraną godzine z listy z wybranego duty, nie ma datepickera, on moze byc w tworzeniu duty
-  </p>
+    <p>
+      DO POPRAWY
+    </p>
+    <p>
+      TODO: z frontendu wysyła się wybraną godzine z listy z wybranego duty, nie ma datepickera, on moze byc w tworzeniu
+      duty
+    </p>
   </mat-card-subtitle>
 
   <mat-card-content class="booking-visit-form-content">
@@ -14,27 +55,31 @@
 
       <mat-form-field appearance="standard">
         <mat-label>Time in duty:</mat-label>
-        <input matInput type="text" placeholder="Time in duty: " [(ngModel)]="request.timeInDuty" [ngModelOptions]="{standalone: true}">
+        <input matInput type="text" placeholder="Time in duty: " [(ngModel)]="request.timeInDuty"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <mat-label>Doctor id: </mat-label>
-        <input matInput type="text" placeholder="Doctor identifier:" [(ngModel)]="request.doctorId" [ngModelOptions]="{standalone: true}">
+        <mat-label>Doctor id:</mat-label>
+        <input matInput type="text" placeholder="Doctor identifier:" [(ngModel)]="request.doctorId"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <mat-label>Duty id: </mat-label>
-        <input matInput type="text" placeholder="Duty identifier:" [(ngModel)]="request.dutyId" [ngModelOptions]="{standalone: true}">
+        <mat-label>Duty id:</mat-label>
+        <input matInput type="text" placeholder="Duty identifier:" [(ngModel)]="request.dutyId"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
 
       <mat-form-field appearance="standard">
-        <mat-label>Patient id: </mat-label>
-        <input matInput type="text" placeholder="Patient identifier:" [(ngModel)]="request.userId" [ngModelOptions]="{standalone: true}">
+        <mat-label>Patient id:</mat-label>
+        <input matInput type="text" placeholder="Patient identifier:" [(ngModel)]="request.userId"
+               [ngModelOptions]="{standalone: true}">
       </mat-form-field>
 
       <div class="form-button-row">
         <button class="submit-button" type="submit" mat-button mat-raised-button>Submit</button>
-        <button class="clear-button" type="reset" mat-button mat-raised-button >Clear</button>
+        <button class="clear-button" type="reset" mat-button mat-raised-button>Clear</button>
       </div>
     </form>
   </mat-card-content>

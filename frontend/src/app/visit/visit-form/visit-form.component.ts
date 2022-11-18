@@ -3,6 +3,7 @@ import {BookingVisitRequest, Visit} from "../../model/visit";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";
+import { MedicalSpecialization } from 'src/app/model/doctor';
 
 @Component({
   selector: 'app-visit-form',
@@ -23,6 +24,19 @@ export class VisitFormComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) { }
+
+  MedicalSpecialization = MedicalSpecialization;
+  selected: MedicalSpecialization = MedicalSpecialization.CARDIOLOGY;
+  specializations = [
+    MedicalSpecialization.CARDIOLOGY,
+    MedicalSpecialization.DERMATOLOGY,
+    MedicalSpecialization.ENDOCRINOLOGY,
+    MedicalSpecialization.PEDIATRICS,
+    MedicalSpecialization.GYNECOLOGY,
+    MedicalSpecialization.OPHTHALMOLOGY,
+    MedicalSpecialization.ORTHOPEDIC_SURGERY,
+    MedicalSpecialization.OCCUPATIONAL_MEDICINE
+  ];
 
   ngOnInit(): void {
   }
