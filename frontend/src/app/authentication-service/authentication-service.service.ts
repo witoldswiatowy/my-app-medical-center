@@ -81,7 +81,7 @@ export class AuthenticationServiceService {
           console.log(this.loggedInUser)
 
           this.loggingIn = false;
-          this.router.navigate(['/test'])
+          this.router.navigate(['/home'])
         },
         error: (error) => {
           console.log('Error logging in: ')

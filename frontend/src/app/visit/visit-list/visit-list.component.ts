@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Visit} from "../model/visit";
+import {Visit} from "../../model/visit";
 
 @Component({
   selector: 'app-visit-list',

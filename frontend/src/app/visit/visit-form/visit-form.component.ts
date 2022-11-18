@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {BookingVisitRequest, Visit} from "../model/visit";
+import {BookingVisitRequest, Visit} from "../../model/visit";
 import {HttpClient} from "@angular/common/http";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Router} from "@angular/router";

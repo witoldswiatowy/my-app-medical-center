@@ -7,12 +7,12 @@ import {LoginFormComponent} from './login-form/login-form.component';
 import {AdminRoleGuard} from './authentication-service/admin-role.guard';
 import {AuthenticationGuard} from './authentication-service/authentication.guard';
 import {RegistrationFormComponent} from './user/registration-form/registration-form.component';
-import {AllVisitListComponent} from "./all-visit-list/all-visit-list.component";
+import {AllVisitListComponent} from "./visit/all-visit-list/all-visit-list.component";
 import {DutiesComponent} from "./duties/duties.component";
 import {DoctorsComponent} from "./doctors/doctors.component";
 import {DoctorFormComponent} from "./doctor-form/doctor-form.component";
 import {ContactComponent} from "./contact/contact.component";
-import {VisitFormComponent} from "./visit-form/visit-form.component";
+import {VisitFormComponent} from "./visit/visit-form/visit-form.component";
 import {DutiesFormComponent} from "./duties-form/duties-form.component";
 import {UserDetailsComponent} from "./user/user-details/user-details.component";
 import {UserEditorComponent} from "./user/user-editor/user-editor.component";
@@ -30,10 +30,8 @@ const routes: Routes = [
   {path: "add_doctor", component: DoctorFormComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visits", component: AllVisitListComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
   {path: "visit_form", component: VisitFormComponent, canActivate: [AuthenticationGuard]},
-  {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, AdminRoleGuard]},
-  {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard, ]},
+  {path: "duties", component: DutiesComponent, canActivate: [AuthenticationGuard]},
   {path: "contact", component: ContactComponent},
-
   {path: "add_duty", component: DutiesFormComponent},
 ];
 

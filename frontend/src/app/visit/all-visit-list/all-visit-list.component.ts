@@ -1,6 +1,6 @@
 import {HttpClient} from "@angular/common/http";
 import { Component, OnInit } from '@angular/core';
-import {Visit} from "../model/visit";
+import {Visit} from "../../model/visit";
 
 @Component({
   selector: 'app-all-visit-list',

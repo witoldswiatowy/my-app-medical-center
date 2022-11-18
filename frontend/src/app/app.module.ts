@@ -36,14 +36,14 @@ import { AuthenticationServiceService } from './authentication-service/authentic
 import { AdminRoleGuard } from './authentication-service/admin-role.guard';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
-import { VisitListComponent } from './visit-list/visit-list.component';
-import { AllVisitListComponent } from './all-visit-list/all-visit-list.component';
+import { VisitListComponent } from './visit/visit-list/visit-list.component';
+import { AllVisitListComponent } from './visit/all-visit-list/all-visit-list.component';
 import { DutiesListComponent } from './duties-list/duties-list.component';
 import { DutiesComponent } from './duties/duties.component';
 import { DoctorFormComponent } from './doctor-form/doctor-form.component';
 import { ContactComponent } from './contact/contact.component';
 import {MatListModule} from "@angular/material/list";
-import { VisitFormComponent } from './visit-form/visit-form.component';
+import { VisitFormComponent } from './visit/visit-form/visit-form.component';
 import {DutiesFormComponent} from "./duties-form/duties-form.component";
 import { UserDetailsComponent } from './user/user-details/user-details.component';
 import { UserEditorComponent } from './user/user-editor/user-editor.component';
